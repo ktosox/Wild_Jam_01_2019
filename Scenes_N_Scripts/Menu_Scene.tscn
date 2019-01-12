@@ -1,8 +1,12 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Scenes_N_Scripts/Menu_Button.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes_N_Scripts/Menu_Scene.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Fonts/Menu/Menu_Title_Font.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Scenes_N_Scripts/Menu_Button.tscn" type="PackedScene" id=3]
 
-[node name="Menu_Scene" type="Node" index="0"]
+[node name="Menu_Scene" type="Node"]
+
+script = ExtResource( 1 )
 
 [node name="Background" type="ColorRect" parent="." index="0"]
 
@@ -39,16 +43,55 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 800.0
-margin_bottom = 160.0
+margin_bottom = 212.0
 rect_min_size = Vector2( 0, 160 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
-size_flags_vertical = 1
+size_flags_vertical = 3
 color = Color( 0.480469, 0.0788269, 0.0788269, 1 )
 _sections_unfolded = [ "Rect", "Size Flags" ]
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/ColorRect" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -53.5
+margin_bottom = 53.5
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+use_top_left = false
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="Title" type="Label" parent="VBoxContainer/ColorRect/CenterContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 75.0
+margin_right = 724.0
+margin_bottom = 107.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 2 )
+text = "TITLE NAME"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" index="1"]
 
@@ -56,7 +99,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 164.0
+margin_top = 216.0
 margin_right = 800.0
 margin_bottom = 600.0
 rect_pivot_offset = Vector2( 0, 0 )
@@ -75,7 +118,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 264.0
-margin_bottom = 436.0
+margin_bottom = 384.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -92,7 +135,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 268.0
 margin_right = 532.0
-margin_bottom = 436.0
+margin_bottom = 384.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -119,12 +162,13 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer" index="1" instance=ExtResource( 1 )]
+[node name="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer" index="1" instance=ExtResource( 3 )]
 
 margin_top = 14.0
 margin_right = 264.0
-margin_bottom = 128.0
-_sections_unfolded = [ "Hint", "Size Flags", "custom_fonts", "custom_styles" ]
+margin_bottom = 94.0
+text = "START"
+_sections_unfolded = [ "Hint", "Rect", "Size Flags", "custom_fonts", "custom_styles" ]
 
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer" index="2"]
 
@@ -132,10 +176,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 132.0
+margin_top = 98.0
 margin_right = 264.0
-margin_bottom = 157.0
-rect_min_size = Vector2( 0, 25 )
+margin_bottom = 148.0
+rect_min_size = Vector2( 0, 50 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -144,11 +188,12 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="Button2" parent="VBoxContainer/HBoxContainer/VBoxContainer" index="3" instance=ExtResource( 1 )]
+[node name="Button2" parent="VBoxContainer/HBoxContainer/VBoxContainer" index="3" instance=ExtResource( 3 )]
 
-margin_top = 161.0
+margin_top = 152.0
 margin_right = 264.0
-margin_bottom = 275.0
+margin_bottom = 232.0
+text = "ABOUT"
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer" index="4"]
 
@@ -156,10 +201,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 279.0
+margin_top = 236.0
 margin_right = 264.0
-margin_bottom = 304.0
-rect_min_size = Vector2( 0, 25 )
+margin_bottom = 286.0
+rect_min_size = Vector2( 0, 50 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -168,11 +213,12 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="Button3" parent="VBoxContainer/HBoxContainer/VBoxContainer" index="5" instance=ExtResource( 1 )]
+[node name="Button3" parent="VBoxContainer/HBoxContainer/VBoxContainer" index="5" instance=ExtResource( 3 )]
 
-margin_top = 308.0
+margin_top = 290.0
 margin_right = 264.0
-margin_bottom = 422.0
+margin_bottom = 370.0
+text = "QUIT"
 
 [node name="MarginContainer4" type="MarginContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer" index="6"]
 
@@ -180,9 +226,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 426.0
+margin_top = 374.0
 margin_right = 264.0
-margin_bottom = 436.0
+margin_bottom = 384.0
 rect_min_size = Vector2( 0, 10 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -200,7 +246,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 536.0
 margin_right = 800.0
-margin_bottom = 436.0
+margin_bottom = 384.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -208,5 +254,9 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 1
 _sections_unfolded = [ "Margin", "Size Flags" ]
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/Button" to="." method="_on_Button_pressed"]
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/Button3" to="." method="_on_Button3_pressed"]
 
 
