@@ -16,15 +16,5 @@ func _ready():
 
 
 func _on_Button_pressed():
-	get_tree().change_scene("res://Scenes_N_Scripts/GameScene.tscn")
-	pass # replace with function body
-
-
-func _on_Button3_pressed():
-	get_tree().quit()
-	pass # replace with function body
-
-
-func _on_Button2_pressed():
-	get_tree().change_scene("res://Scenes_N_Scripts/About.tscn")
+	get_tree().change_scene("res://Scenes_N_Scripts/Menu_Scene.tscn")
 	pass # replace with function body
