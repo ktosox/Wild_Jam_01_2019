@@ -11,7 +11,12 @@ config_version=3
 [application]
 
 config/name="Wild_Jam_01_2019"
+run/main_scene="res://Scenes_N_Scripts/Menu_Scene.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/width=800
 
 [rendering]
 
