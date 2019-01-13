@@ -11,7 +11,7 @@ func _process(delta):
 	
 func get_input():
 	velocity = Vector2() #flush previous data
-	var currentAngle = $Engine.rotation_degrees #set angle
+	var currentAngle = $Engine.global_rotation_degrees #set angle
 	if Input.is_action_pressed('ui_up'):
 		$Engine.spinNotLocked = false # lock engine spin
 		velocity.x = sin(deg2rad(currentAngle))
@@ -19,6 +19,12 @@ func get_input():
 	velocity = velocity.normalized() * speed
 	if Input.is_action_just_released('ui_up'):
 		$Engine.spinNotLocked = true # unlock engine spin
+		
 func _physics_process(delta):
 	get_input()
+	#maybe get_translatiin as offset?
 	apply_impulse(Vector2(0,0),velocity)
+	
+func updateCoreRotation(value):
+	#adjust playback speed of core rotation animation here
+	pass
