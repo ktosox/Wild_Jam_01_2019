@@ -31,3 +31,9 @@ func updateGlobalPlayerData(delta):
 	#decrease fuel and power * delta
 	#send updated values to Player
 	pass
+
+func process_collision(projectile):
+	if (projectile.ProjectileType == 1):
+		fuelLevel +=50
+		projectile.ToBeRemoved = true
+	
