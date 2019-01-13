@@ -13,6 +13,9 @@ func get_input():
 	velocity = Vector2() #flush previous data
 	var currentAngle = $Engine.global_rotation_degrees #set angle
 	if Input.is_action_pressed('ui_up'):
+		get_parent().GameScenePointer.corePowerLevel += 2
+		if ($SoundImpulse.playing == false):
+			$SoundImpulse.play()
 		$Engine.spinNotLocked = false # lock engine spin
 		velocity.x = sin(deg2rad(currentAngle))
 		velocity.y = cos(deg2rad(currentAngle+180))
@@ -22,9 +25,6 @@ func get_input():
 		
 func _physics_process(delta):
 	get_input()
-	#maybe get_translatiin as offset?
+	#maybe get_translatiin as offset? 
 	apply_impulse(Vector2(0,0),velocity)
 	
-func updateCoreRotation(value):
-	#adjust playback speed of core rotation animation here
-	pass
