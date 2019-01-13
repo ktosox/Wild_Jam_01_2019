@@ -1,6 +1,6 @@
 extends Node
 
-var fuelLevel = 50
+var fuelLevel = 500
 var corePowerLevel = 50
 var coreSlowDownRate = 20
 var playerBase = load("res://Scenes_N_Scripts/Player.tscn") # Load Player Scene
@@ -24,8 +24,10 @@ func _process(delta):
 func updateGlobalPlayerData(delta):
 	if(corePowerLevel>0):
 		corePowerLevel -= delta * coreSlowDownRate
+		fuelLevel -= corePowerLevel * 0.1 * delta
 	$Player.updateCoreRotation(corePowerLevel)
 	$CoreEnergyBar.value = corePowerLevel
+	$FuelLEvelBar.value = fuelLevel
 	#decrease fuel and power * delta
 	#send updated values to Player
 	pass
