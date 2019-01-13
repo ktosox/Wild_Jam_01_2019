@@ -1,8 +1,9 @@
 extends Node2D
 
 var GameScenePointer # pointer to game scene
-var ProjectileType = 0 # 1 for item, 2 for projectile
+var ProjectileType = 1 # 1 for item, 2 for projectile
 var Launched = false # has this projectile been started yet
+var ToBeRemoved = false
 # always false at start
 
 # class member variables go here, for example:
@@ -15,7 +16,15 @@ func _ready():
 	# Initialization here
 	pass
 
-#func _process(delta):
+func _process(delta):
+	if(ToBeRemoved):
+		self.free()
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
-#	pass
+	pass
+
+
+func _on_Collision_Area_body_entered(body):
+		#if (body == ):
+	GameScenePointer.process_collision(self)
+	pass # replace with function body
