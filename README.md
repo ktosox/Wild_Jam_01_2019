@@ -55,6 +55,12 @@ and a woop woop for overheating
 
 lööps
 
+- create scenes based on projectile
+
+pick up, impact, 
+
+- implement end game screen
+
 - add particle generator to engine
 
 - bake better engine in blender
