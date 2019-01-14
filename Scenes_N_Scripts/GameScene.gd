@@ -1,6 +1,6 @@
 extends Node
 
-var fuelLevel = 500
+var fuelLevel = 50
 var corePowerLevel = 50
 var coreSlowDownRate = 20
 var playerBase = load("res://Scenes_N_Scripts/Player.tscn") # Load Player Scene
@@ -28,12 +28,20 @@ func updateGlobalPlayerData(delta):
 	$Player.updateCoreRotation(corePowerLevel)
 	$CoreEnergyBar.value = corePowerLevel
 	$FuelLEvelBar.value = fuelLevel
+	if(fuelLevel<30):
+		fuelLevel += 300
+		$Player.deathEvent(10)
 	#decrease fuel and power * delta
 	#send updated values to Player
 	pass
 
 func process_collision(projectile):
-	if (projectile.ProjectileType == 1):
-		fuelLevel +=50
-		projectile.ToBeRemoved = true
+	if (projectile.projectileType == 1):
+		fuelLevel +=90
+		print("FUEL")
+	if (projectile.projectileType == 2):
+		print("BOOM")
+	if (projectile.projectileType == 3):
+		print("LOOP")
+	projectile.unLive()
 	

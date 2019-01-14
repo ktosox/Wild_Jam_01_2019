@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes_N_Scripts/GameScene.gd" type="Script" id=1]
 [ext_resource path="res://Scenes_N_Scripts/Background.tscn" type="PackedScene" id=2]
@@ -6,9 +6,11 @@
 [ext_resource path="res://Scenes_N_Scripts/Wall1.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes_N_Scripts/Wall2.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes_N_Scripts/RainbowNado.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes_N_Scripts/Projectile.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes_N_Scripts/FuelCanister.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes_N_Scripts/Loop.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes_N_Scripts/Bomb.tscn" type="PackedScene" id=9]
 
-[node name="MainGameNode" type="Node" index="0"]
+[node name="MainGameNode" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -25,6 +27,7 @@ position = Vector2( 320.44, 111.724 )
 
 [node name="Label" type="Label" parent="." index="2"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -73,6 +76,7 @@ position = Vector2( -265.559, -73.4881 )
 
 [node name="RainbowNado" parent="." index="9" instance=ExtResource( 6 )]
 
+visible = false
 scale = Vector2( 0.6, 0.6 )
 
 [node name="CoreEnergyBar" type="ProgressBar" parent="." index="10"]
@@ -169,12 +173,16 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Projectile2" parent="." index="14" instance=ExtResource( 7 )]
+[node name="FuelCanister" parent="." index="14" instance=ExtResource( 7 )]
 
-position = Vector2( 178.611, 78.4384 )
+position = Vector2( 790.744, -96.0569 )
 
-[node name="Projectile" parent="." index="15" instance=ExtResource( 7 )]
+[node name="Loop" parent="." index="15" instance=ExtResource( 8 )]
 
-position = Vector2( -152.24, 128.913 )
+position = Vector2( 778.156, 110.381 )
+
+[node name="Bomb" parent="." index="16" instance=ExtResource( 9 )]
+
+position = Vector2( 486.987, 154.894 )
 
 

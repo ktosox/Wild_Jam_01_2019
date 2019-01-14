@@ -1,5 +1,7 @@
 extends RigidBody2D
 
+var alive = true
+
 var speed = 5000
 var velocity = Vector2()
 
@@ -24,7 +26,7 @@ func get_input():
 		$Engine.spinNotLocked = true # unlock engine spin
 		
 func _physics_process(delta):
-	get_input()
-	#maybe get_translatiin as offset? 
-	apply_impulse(Vector2(0,0),velocity)
+	if(alive):
+		get_input()
+		apply_impulse(Vector2(0,0),velocity)
 	

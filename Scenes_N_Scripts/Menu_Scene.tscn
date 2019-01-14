@@ -5,7 +5,7 @@
 [ext_resource path="res://Resources/Fonts/Menu/Menu_Title_Font.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Scenes_N_Scripts/Menu_Button.tscn" type="PackedScene" id=4]
 
-[node name="Menu_Scene" type="Node" index="0"]
+[node name="Menu_Scene" type="Node"]
 
 script = ExtResource( 1 )
 
