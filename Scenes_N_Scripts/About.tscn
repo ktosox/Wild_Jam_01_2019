@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scenes_N_Scripts/About.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Audio/Lobby_Time_short.ogg" type="AudioStream" id=2]
 
 [node name="About" type="Node"]
 
@@ -82,6 +83,15 @@ group = null
 text = "BACK"
 flat = false
 align = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="1"]
+
+stream = ExtResource( 2 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = true
+mix_target = 0
+bus = "Master"
 
 [connection signal="pressed" from="Layout/Button" to="." method="_on_Button_pressed"]
 

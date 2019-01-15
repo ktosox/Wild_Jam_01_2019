@@ -1,0 +1,63 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes_N_Scripts/GameFolder/RainbowNado.gd" type="Script" id=1]
+[ext_resource path="res://Scenes_N_Scripts/GameFolder/Tornado_layer_base.tscn" type="PackedScene" id=2]
+
+
+
+[sub_resource type="Animation" id=1]
+
+resource_name = "Shrink_RainbowNado"
+length = 10.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3, 8, 10 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.8, 0.8 ), Vector2( 0.6, 0.6 ), Vector2( 1, 1 ) ]
+}
+
+[node name="RainbowNado" type="Node2D"]
+
+scale = Vector2( 0.965687, 0.965687 )
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
+
+root_node = NodePath("..")
+autoplay = "Shrink_RainbowNado"
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/Shrink_RainbowNado = SubResource( 1 )
+blend_times = [  ]
+
+[node name="Tornado_1" parent="." index="1" instance=ExtResource( 2 )]
+
+scale = Vector2( 1, 1 )
+
+[node name="Tornado_2" parent="." index="2" instance=ExtResource( 2 )]
+
+scale = Vector2( 1, 1 )
+
+[node name="Tornado_3" parent="." index="3" instance=ExtResource( 2 )]
+
+scale = Vector2( 1, 1 )
+
+[node name="Tornado_4" parent="." index="4" instance=ExtResource( 2 )]
+
+scale = Vector2( 1, 1 )
+
+[node name="Tornado_5" parent="." index="5" instance=ExtResource( 2 )]
+
+scale = Vector2( 1, 1 )
+
+

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Lobby_Time_short.ogg-00011732b6720e8e24373d833ed2b902.oggstr"
+
+[deps]
+
+source_file="res://Resources/Audio/Lobby_Time_short.ogg"
+dest_files=[ "res://.import/Lobby_Time_short.ogg-00011732b6720e8e24373d833ed2b902.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

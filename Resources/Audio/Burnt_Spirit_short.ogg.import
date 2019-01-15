@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Burnt_Spirit_short.ogg-256e9b99e372bc5e69b37d534e2883ce.oggstr"
+
+[deps]
+
+source_file="res://Resources/Audio/Burnt_Spirit_short.ogg"
+dest_files=[ "res://.import/Burnt_Spirit_short.ogg-256e9b99e372bc5e69b37d534e2883ce.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -16,7 +16,7 @@ func _ready():
 
 
 func _on_Button_pressed():
-	get_tree().change_scene("res://Scenes_N_Scripts/GameScene.tscn")
+	get_tree().change_scene("res://Scenes_N_Scripts/GameFolder/GameScene.tscn")
 	
 	pass # replace with function body
 
