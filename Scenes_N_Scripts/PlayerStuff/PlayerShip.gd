@@ -3,7 +3,7 @@ extends RigidBody2D
 var alive = true
 
 var speed = 0
-var speedMultiplayer = 12
+var speedMultiplayer = 80
 var velocity = Vector2()
 
 func _ready():

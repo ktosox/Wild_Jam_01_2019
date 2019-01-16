@@ -12,6 +12,11 @@ func _ready():
 
 	pass
 
+func useUp():
+	$fuel_box3.free()
+	$PickUpSound.play()
+	pass
+
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.

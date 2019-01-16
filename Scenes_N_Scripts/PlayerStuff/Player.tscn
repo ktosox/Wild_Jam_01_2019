@@ -5,8 +5,8 @@
 [ext_resource path="res://Scenes_N_Scripts/PlayerStuff/Engine.gd" type="Script" id=3]
 [ext_resource path="res://Resources/Artwork/Player/ship_engine_exhaust.png" type="Texture" id=4]
 [ext_resource path="res://Resources/Artwork/Player/ship_engine.png" type="Texture" id=5]
-[ext_resource path="res://Resources/Artwork/Player/ship_bodyv2.png" type="Texture" id=6]
-[ext_resource path="res://Resources/Artwork/Player/ship_center2.png" type="Texture" id=7]
+[ext_resource path="res://Resources/Artwork/Player/ship_center2.png" type="Texture" id=6]
+[ext_resource path="res://Resources/Artwork/Player/ship_bodyv2.png" type="Texture" id=7]
 [ext_resource path="res://Resources/Artwork/Player/ship_core_energy.png" type="Texture" id=8]
 [ext_resource path="res://Resources/Artwork/Player/Space_ship_ring.png" type="Texture" id=9]
 [ext_resource path="res://Resources/Audio/pick_up_best.wav" type="AudioStream" id=10]
@@ -16,9 +16,9 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 5.37512, 10 )
+extents = Vector2( 1.23157, 2.34134 )
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 
 resource_name = "ExtendJet"
 length = 5.0
@@ -37,7 +37,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 430 ), Vector2( 0, 560 ) ]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=6]
 
 length = 2.0
 loop = true
@@ -55,14 +55,14 @@ tracks/0/keys = {
 "values": [ 360.0, 180.0, 0.0 ]
 }
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=4]
 
 custom_solver_bias = 0.0
-radius = 95.7546
+radius = 47.0082
 
 [node name="Player" type="Node2D"]
 
-scale = Vector2( 0.3, 0.3 )
+scale = Vector2( 0.8, 0.8 )
 script = ExtResource( 1 )
 _sections_unfolded = [ "Linear", "Transform", "Visibility" ]
 
@@ -91,17 +91,92 @@ editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
 _sections_unfolded = [ "Offset", "Smoothing" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="ProgressBar" type="ProgressBar" parent="Camera2D" index="0"]
+[node name="Label2" type="Label" parent="Camera2D" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -362.0
-margin_top = -91.0
-margin_right = -243.0
-margin_bottom = -24.0
+margin_left = -557.0
+margin_top = -418.0
+margin_right = -452.0
+margin_bottom = -379.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "CORE HEAT"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label" type="Label" parent="Camera2D" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -520.0
+margin_top = 41.0
+margin_right = -321.0
+margin_bottom = 174.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "FUEL"
+uppercase = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Grow Direction", "Hint", "Margin", "Mouse", "Size Flags", "custom_colors", "custom_fonts", "custom_styles" ]
+
+[node name="FuelBar" type="ProgressBar" parent="Camera2D" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -554.0
+margin_top = 530.0
+margin_right = -98.0
+margin_bottom = 613.0
+rect_rotation = 270.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+min_value = 0.0
+max_value = 1000.0
+step = 1.0
+page = 0.0
+value = 30.0
+exp_edit = false
+rounded = false
+percent_visible = false
+_sections_unfolded = [ "Focus", "Hint", "Percent", "Rect" ]
+
+[node name="CoreHeat" type="ProgressBar" parent="Camera2D" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -561.0
+margin_top = -77.0
+margin_right = -260.0
+margin_bottom = 23.0
+rect_rotation = 270.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -112,12 +187,13 @@ min_value = 0.0
 max_value = 100.0
 step = 1.0
 page = 0.0
-value = 0.0
+value = 60.0
 exp_edit = false
 rounded = false
-percent_visible = true
+percent_visible = false
+_sections_unfolded = [ "Grow Direction", "Percent", "Rect" ]
 
-[node name="Area2D" type="Area2D" parent="Camera2D" index="1"]
+[node name="Area2D" type="Area2D" parent="Camera2D" index="4"]
 
 scale = Vector2( 30.0592, 16.1701 )
 input_pickable = true
@@ -134,6 +210,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/Area2D" index="0"]
 
+position = Vector2( 6, 0 )
 scale = Vector2( 6.17575, 2.76193 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
@@ -169,8 +246,9 @@ __meta__ = {
 
 [node name="Engine" type="Node2D" parent="PlayerShip" index="0"]
 
+editor/display_folded = true
 position = Vector2( 0, 0.504218 )
-scale = Vector2( 0.3, 0.315757 )
+scale = Vector2( 0.3, 0.2 )
 script = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 __meta__ = {
@@ -179,6 +257,7 @@ __meta__ = {
 
 [node name="Jet" type="Sprite" parent="PlayerShip/Engine" index="0"]
 
+editor/display_folded = true
 position = Vector2( 0, 475.299 )
 rotation = 1.5708
 scale = Vector2( 0.220514, 0.331546 )
@@ -195,7 +274,7 @@ autoplay = "ExtendJet"
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/ExtendJet = SubResource( 4 )
+anims/ExtendJet = SubResource( 5 )
 blend_times = [  ]
 
 [node name="Engine_Sprite" type="Sprite" parent="PlayerShip/Engine" index="1"]
@@ -209,18 +288,10 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Ring" type="Sprite" parent="PlayerShip" index="1"]
+[node name="Body" type="Node2D" parent="PlayerShip" index="1"]
 
-scale = Vector2( 0.47679, 0.47679 )
-texture = ExtResource( 6 )
-_sections_unfolded = [ "Transform" ]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Body" type="Node2D" parent="PlayerShip" index="2"]
-
-scale = Vector2( 0.235971, 0.235971 )
+editor/display_folded = true
+scale = Vector2( 0.1, 0.1 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
@@ -228,13 +299,22 @@ __meta__ = {
 
 [node name="Body_top" type="Sprite" parent="PlayerShip/Body" index="0"]
 
-texture = ExtResource( 7 )
+texture = ExtResource( 6 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Body_core" type="Sprite" parent="PlayerShip/Body" index="1"]
+[node name="Ring" type="Sprite" parent="PlayerShip/Body" index="1"]
+
+scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Body_core" type="Sprite" parent="PlayerShip/Body" index="2"]
 
 scale = Vector2( 1.1, 1.1 )
 texture = ExtResource( 8 )
@@ -250,10 +330,10 @@ autoplay = "Rotation"
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/Rotation = SubResource( 2 )
+anims/Rotation = SubResource( 6 )
 blend_times = [  ]
 
-[node name="Body_bottom" type="Sprite" parent="PlayerShip/Body" index="2"]
+[node name="Body_bottom" type="Sprite" parent="PlayerShip/Body" index="3"]
 
 scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 9 )
@@ -262,7 +342,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="SoundImpulse" type="AudioStreamPlayer" parent="PlayerShip" index="3"]
+[node name="SoundImpulse" type="AudioStreamPlayer" parent="PlayerShip" index="2"]
 
 stream = ExtResource( 10 )
 volume_db = 0.0
@@ -271,19 +351,19 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerShip" index="4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerShip" index="3"]
 
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="DeathSmoke" type="Particles2D" parent="PlayerShip" index="5"]
+[node name="DeathSmoke" type="Particles2D" parent="PlayerShip" index="4"]
 
 scale = Vector2( 0.45, 0.45 )
 emitting = false
-amount = 360
+amount = 180
 lifetime = 3.0
 one_shot = true
 preprocess = 0.0

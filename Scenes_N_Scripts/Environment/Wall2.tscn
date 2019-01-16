@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 14.1489, 10 )
+extents = Vector2( 55.2448, 60.6932 )
 
 [node name="StaticBody2D" type="StaticBody2D"]
 
@@ -19,7 +19,6 @@ bounce = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
-rotation = 1.5708
 scale = Vector2( 5.07948, 1.72623 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
@@ -29,8 +28,7 @@ __meta__ = {
 
 [node name="frame2" type="Sprite" parent="." index="1"]
 
-rotation = 1.5708
-scale = Vector2( 0.3, 0.1 )
+scale = Vector2( 1.2, 0.6 )
 texture = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {

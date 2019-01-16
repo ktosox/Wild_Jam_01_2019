@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes_N_Scripts/Environment/Bomb.gd" type="Script" id=1]
 [ext_resource path="res://Scenes_N_Scripts/Environment/Projectile.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Resources/Artwork/Items/fuel_box1.png" type="Texture" id=3]
-[ext_resource path="res://Resources/Artwork/Items/Bomb_particle.tres" type="Material" id=4]
-[ext_resource path="res://Resources/Artwork/Effects/smoke2.png" type="Texture" id=5]
+[ext_resource path="res://Resources/Audio/dumm1.wav" type="AudioStream" id=4]
 
 [node name="Bomb" type="Node2D"]
 
@@ -16,29 +15,17 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="fuel_box1" type="Sprite" parent="." index="1"]
 
+scale = Vector2( 0.17, 0.17 )
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Particles2D" type="Particles2D" parent="." index="2"]
+[node name="ExplosionSound" type="AudioStreamPlayer" parent="." index="2"]
 
-emitting = true
-amount = 60
-lifetime = 3.0
-one_shot = false
-preprocess = 0.0
-speed_scale = 3.0
-explosiveness = 1.0
-randomness = 0.0
-fixed_fps = 0
-fract_delta = true
-visibility_rect = Rect2( -100, -100, 200, 200 )
-local_coords = true
-draw_order = 0
-process_material = ExtResource( 4 )
-texture = ExtResource( 5 )
-normal_map = null
-h_frames = 1
-v_frames = 1
-_sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time" ]
+stream = ExtResource( 4 )
+volume_db = 0.0
+pitch_scale = 0.8
+autoplay = false
+mix_target = 0
+bus = "Master"
 
 

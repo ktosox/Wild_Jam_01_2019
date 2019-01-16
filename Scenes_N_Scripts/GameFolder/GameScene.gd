@@ -1,25 +1,28 @@
 extends Node
 
 var fuelLevel = 500
-var corePowerLevel = 50
+var fuelLevelMax = 1000
+var corePowerLevel = 200
+var corePowerLevelMax = 1000
 var coreSlowDownRate = 20
 var playerDied = false
 var playerBase = load("res://Scenes_N_Scripts/PlayerStuff/Player.tscn") # Load Player Scene
 
+var directionRainbownado = Vector2(90,0)
+
 func _ready():
-	$Player.GameScenePointer = self
+	#$Player.GameScenePointer = self
+	$Player.free()
+	var newPlayer = playerBase.instance()
+	self.add_child(newPlayer,true)
+	newPlayer.GameScenePointer = self
 	pass
 
-func get_input():
-	#Debug code, kills the player and respawn at middle of screen
-	if Input.is_action_pressed('ui_down'):
-		$Player.free()
-		var newPlayer = playerBase.instance()
-		self.add_child(newPlayer,true)
-		newPlayer.GameScenePointer = self
+
+
 
 func _process(delta):
-	get_input()
+	$RainbowNado.move_and_slide(directionRainbownado)
 	updateGlobalPlayerData(delta)
 	if(fuelLevel<80 && $FuelLowSound.playing == false):
 		$FuelLowSound.play()
@@ -27,26 +30,39 @@ func updateGlobalPlayerData(delta):
 	if(corePowerLevel>0):
 		corePowerLevel -= delta * coreSlowDownRate
 		fuelLevel -= corePowerLevel * 0.1 * delta
+	if(corePowerLevel>100):
+		corePowerLevel -= delta * coreSlowDownRate * 3
+		fuelLevel -= corePowerLevel * 0.2 * delta
 	$Player.updateCoreRotation(corePowerLevel)
-	$CoreEnergyBar.value = corePowerLevel
-	$FuelLEvelBar.value = fuelLevel
-	if(fuelLevel<10):
-		$Player.deathEvent(10)
-		playerDied = true
+	$Player.updateFuelLevel(fuelLevel)
 	#decrease fuel and power * delta
 	#send updated values to Player
 	pass
 
 func process_collision(projectile):
 	if (projectile.projectileType == 1):
-		fuelLevel +=90
+		fuelLevel +=600
+		projectile.get_parent().useUp()
 		print("FUEL")
 	if (projectile.projectileType == 2):
+		projectile.get_parent().explode()
+		
+		
+		$Player/PlayerShip.linear_velocity.x +=($Player/PlayerShip.global_position.x - projectile.global_position.x) *30
+		$Player/PlayerShip.linear_velocity.y +=($Player/PlayerShip.global_position.y - projectile.global_position.y) *30
 		print("BOOM")
 	if (projectile.projectileType == 3):
+		#projectile.get_parent()
 		print("LOOP")
 	projectile.unLive()
 	
+
+func killPlayer():
+	if(!playerDied):
+		print("PLAYER KILLED")
+		playerDied = true
+		$Player.deathEvent(10)
+	pass
 
 func _on_DeathTimer_timeout():
 	if(playerDied):

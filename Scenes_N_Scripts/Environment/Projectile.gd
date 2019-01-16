@@ -25,8 +25,8 @@ func _process(delta):
 
 
 func _on_Collision_Area_body_entered(body):
-		#if (body == ):
-	gameScenePointer.process_collision(self)
+	if (body.get_class()=="RigidBody2D"):
+		gameScenePointer.process_collision(self)
 	pass # replace with function body
 
 func unLive():

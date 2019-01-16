@@ -23,10 +23,17 @@ func _process(delta):
 func updateCoreRotation(value):
 	$PlayerShip/Body/Body_core/AnimationPlayer.playback_speed = value/50
 	$PlayerShip.speed = value
+	$Camera2D/CoreHeat.value = value
 	#adjust playback speed of core rotation animation here
+	pass
+	
+func updateFuelLevel(value):
+	$Camera2D/FuelBar.value = value
 	pass
 	
 func deathEvent(type):
 	$PlayerShip/DeathSmoke.restart()
+	$PlayerShip/Engine.visible = false
+	$PlayerShip/Body.visible = false
 	$PlayerShip.alive = false
 	pass
