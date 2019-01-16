@@ -4,7 +4,7 @@
 [ext_resource path="res://Resources/Fonts/Menu/Menu_Title_Font.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Scenes_N_Scripts/Menu_Button.tscn" type="PackedScene" id=3]
 
-[node name="Menu_Scene" type="Node"]
+[node name="Menu_Scene" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -25,65 +25,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Label2" type="Label" parent="." index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 23.0
-margin_top = 301.0
-margin_right = 206.0
-margin_bottom = 561.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-text = "Audio settings should go here
-
-seperate scrolls for
-in game sounds
-and music"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="Label" type="Label" parent="." index="2"]
-
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -253.0
-margin_top = -363.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 3
-size_flags_vertical = 6
-text = "Some text regarding how
-the game is played could
-go here, as this is basically
-free real estate
-Example:
-1. Do stuff
-2. Do more stuff
-3. Avoid the bad
-4. ???
-5. Profit"
-valign = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Focus", "Rect", "Size Flags", "Theme", "custom_fonts" ]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="VBoxContainer" type="VBoxContainer" parent="." index="3"]
+[node name="VBoxContainer" type="VBoxContainer" parent="." index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -184,7 +126,7 @@ size_flags_vertical = 3
 alignment = 0
 _sections_unfolded = [ "Size Flags" ]
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer" index="0"]
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/HBoxContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -196,9 +138,35 @@ rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
-size_flags_horizontal = 7
+size_flags_horizontal = 3
 size_flags_vertical = 1
-_sections_unfolded = [ "Margin", "Size Flags" ]
+use_top_left = false
+_sections_unfolded = [ "Rect", "Size Flags" ]
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/CenterContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 53.0
+margin_top = 151.0
+margin_right = 244.0
+margin_bottom = 233.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Audio settings should go here
+
+seperate scrolls for
+in game sounds
+and music"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" index="1"]
 
@@ -311,7 +279,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Rect", "Size Flags" ]
 
-[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/HBoxContainer" index="2"]
+[node name="MarginContainer2" type="CenterContainer" parent="VBoxContainer/HBoxContainer" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -326,7 +294,43 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 1
+use_top_left = false
 _sections_unfolded = [ "Margin", "Size Flags" ]
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer2" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 63.0
+margin_top = 108.0
+margin_right = 235.0
+margin_bottom = 275.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Some text regarding how
+the game is played could
+go here, as this is basically
+free real estate
+Example:
+1. Do stuff
+2. Do more stuff
+3. Avoid the bad
+4. ???
+5. Profit"
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Focus", "Rect", "Size Flags", "Theme", "custom_fonts" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/Button" to="." method="_on_Button_pressed"]
 

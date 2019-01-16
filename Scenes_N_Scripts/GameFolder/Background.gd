@@ -5,7 +5,7 @@ extends Control
 # var b = "textvar"
 
 func _ready():
-	$TextureRect5.rect_pivot_offset = $TextureRect5.rect_size/2
+	#$TextureRect5.rect_pivot_offset = $TextureRect5.rect_size/2 #ceneters tranformatin point
 	pass
 
 #func _process(delta):
