@@ -16,7 +16,7 @@ func get_input():
 	velocity = Vector2() #flush previous data
 	var currentAngle = $Engine.global_rotation_degrees #set angle
 	if Input.is_action_pressed('ui_up'):
-		$Engine.moveJet()
+		$Engine.emitSmoke()
 		get_parent().GameScenePointer.corePowerLevel += 2
 		if ($SoundImpulse.playing == false):
 			$SoundImpulse.play()

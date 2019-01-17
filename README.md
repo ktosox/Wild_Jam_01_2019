@@ -10,11 +10,11 @@ don't care
 
 - ~~adding entrance and exit portals~~ done, 1 portal class
 
-- spawn and despawn animations - make it very zoomed at start and zoom out to game mode, at end zoom in and fade out
+- ~~spawn and despawn animations - make it very zoomed at start and zoom out to game mode, at end zoom in and fade out~~ partialy implemented
 
-- a nice engine buzz? pitch depends on core heat
+- ~~a nice engine buzz? pitch depends on core heat~~ done
 
-- add particle generator to engine
+- ~~add particle generator to engine~~ done
 
 - transition between screens, possibly a screen between game levels - warp/travell screen and general fade to black
 

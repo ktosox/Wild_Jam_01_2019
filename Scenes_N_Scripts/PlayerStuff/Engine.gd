@@ -7,10 +7,14 @@ func _ready():
 	pass
 
 func _process(delta):
+	if(!$EngineBuzz.playing):
+		$EngineBuzz.play()
+		
 	if(spinNotLocked):
 		rotate(delta*spinRate)
 
 	pass
-
-func moveJet():
-	$Jet/JetMover.advance(3)
+	
+func emitSmoke():
+	$SmokeEmitter.restart()
+	

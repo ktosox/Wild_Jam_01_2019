@@ -2,9 +2,7 @@ extends Node
 
 var fuelLevel = 500
 var fuelLevelMax = 1000
-
-
-var corePowerLevel = 200
+var corePowerLevel = 300
 var corePowerLevelMax = 1000
 var coreSlowDownRate = 20
 var playerDied = false
@@ -27,13 +25,24 @@ func _process(delta):
 	$RainbowNado.move_and_slide(directionRainbownado)
 	if(fuelLevel>fuelLevelMax):
 		fuelLevel=fuelLevelMax
+	if(corePowerLevel>corePowerLevelMax):
+		corePowerLevel=corePowerLevelMax
 	updateGlobalPlayerData(delta)
+	if(fuelLevel<200 && !$SoundBox.playLowFuel):
+		$SoundBox.startLowFuel()
+	if(fuelLevel>200 && $SoundBox.playLowFuel):
+		$SoundBox.stopLowFuel()
+		
+	if(corePowerLevel>800 && !$SoundBox.playCoreHeat):
+		$SoundBox.startCoreHeat()
+	if(corePowerLevel<800 && $SoundBox.playCoreHeat):
+		$SoundBox.stopCoreHeat()
 		
 func updateGlobalPlayerData(delta):
 	if(corePowerLevel>0):
 		corePowerLevel -= delta * coreSlowDownRate
 		fuelLevel -= corePowerLevel * 0.1 * delta
-	if(corePowerLevel>100):
+	if(corePowerLevel>200):
 		corePowerLevel -= delta * coreSlowDownRate * 3
 		fuelLevel -= corePowerLevel * 0.2 * delta
 	$Player.updateCoreRotation(corePowerLevel)
@@ -51,8 +60,8 @@ func process_collision(projectile):
 		projectile.get_parent().explode()
 		
 		
-		$Player/PlayerShip.linear_velocity.x +=($Player/PlayerShip.global_position.x - projectile.global_position.x) *30
-		$Player/PlayerShip.linear_velocity.y +=($Player/PlayerShip.global_position.y - projectile.global_position.y) *30
+		$Player/PlayerShip.linear_velocity.x +=($Player/PlayerShip.global_position.x - projectile.global_position.x) *20
+		$Player/PlayerShip.linear_velocity.y +=($Player/PlayerShip.global_position.y - projectile.global_position.y) *20
 		print("BOOM")
 	if (projectile.projectileType == 3):
 		#projectile.get_parent()
@@ -71,7 +80,3 @@ func _on_DeathTimer_timeout():
 	if(playerDied):
 		get_tree().change_scene("res://Scenes_N_Scripts/GameFolder/DeathScreen.tscn")
 
-
-func _on_NonCriticalCheckups_timeout():
-	
-	pass # replace with function body
