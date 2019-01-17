@@ -2,6 +2,8 @@ extends Node
 
 var fuelLevel = 500
 var fuelLevelMax = 1000
+
+
 var corePowerLevel = 200
 var corePowerLevelMax = 1000
 var coreSlowDownRate = 20
@@ -23,9 +25,10 @@ func _ready():
 
 func _process(delta):
 	$RainbowNado.move_and_slide(directionRainbownado)
+	if(fuelLevel>fuelLevelMax):
+		fuelLevel=fuelLevelMax
 	updateGlobalPlayerData(delta)
-	if(fuelLevel<80 && $FuelLowSound.playing == false):
-		$FuelLowSound.play()
+		
 func updateGlobalPlayerData(delta):
 	if(corePowerLevel>0):
 		corePowerLevel -= delta * coreSlowDownRate
@@ -67,3 +70,8 @@ func killPlayer():
 func _on_DeathTimer_timeout():
 	if(playerDied):
 		get_tree().change_scene("res://Scenes_N_Scripts/GameFolder/DeathScreen.tscn")
+
+
+func _on_NonCriticalCheckups_timeout():
+	
+	pass # replace with function body

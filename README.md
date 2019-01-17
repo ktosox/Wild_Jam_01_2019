@@ -8,7 +8,7 @@ don't care
 
 ## Version 0.7
 
-- adding entrance and exit portals
+- ~~adding entrance and exit portals~~ done, 1 portal class
 
 - spawn and despawn animations - make it very zoomed at start and zoom out to game mode, at end zoom in and fade out
 

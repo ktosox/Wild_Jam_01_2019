@@ -2,10 +2,10 @@
 
 [ext_resource path="res://Scenes_N_Scripts/GameFolder/GameScene.gd" type="Script" id=1]
 [ext_resource path="res://Scenes_N_Scripts/GameFolder/Background.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes_N_Scripts/PlayerStuff/Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes_N_Scripts/GameFolder/RainbowNado.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Resources/Audio/Burnt_Spirit_short.ogg" type="AudioStream" id=5]
-[ext_resource path="res://Resources/Audio/low_fuel.wav" type="AudioStream" id=6]
+[ext_resource path="res://Scenes_N_Scripts/Environment/Portal.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes_N_Scripts/PlayerStuff/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes_N_Scripts/GameFolder/RainbowNado.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Resources/Audio/Burnt_Spirit_short.ogg" type="AudioStream" id=6]
 [ext_resource path="res://Scenes_N_Scripts/Environment/Wall2.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes_N_Scripts/Environment/Wall1.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes_N_Scripts/Environment/FuelCanister.tscn" type="PackedScene" id=9]
@@ -29,12 +29,17 @@ margin_top = -302.0
 margin_right = -397.0
 margin_bottom = -302.0
 
-[node name="Player" parent="." index="2" instance=ExtResource( 3 )]
+[node name="Portal" parent="." index="2" instance=ExtResource( 3 )]
+
+position = Vector2( -453.156, -178.745 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Player" parent="." index="3" instance=ExtResource( 4 )]
 
 position = Vector2( -361.776, -186.992 )
 scale = Vector2( 1, 1 )
 
-[node name="Label" type="Label" parent="." index="3"]
+[node name="Label" type="Label" parent="." index="4"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -58,26 +63,17 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Focus", "Hint", "Margin", "Mouse", "Rect", "Size Flags", "Theme", "custom_colors", "custom_constants", "custom_fonts" ]
 
-[node name="RainbowNado" parent="." index="4" instance=ExtResource( 4 )]
+[node name="RainbowNado" parent="." index="5" instance=ExtResource( 5 )]
 
 position = Vector2( -1142.54, -167.791 )
 scale = Vector2( 1, 1 )
 
-[node name="Music" type="AudioStreamPlayer" parent="." index="5"]
+[node name="Music" type="AudioStreamPlayer" parent="." index="6"]
 
-stream = ExtResource( 5 )
+stream = ExtResource( 6 )
 volume_db = -8.0
 pitch_scale = 1.1
 autoplay = true
-mix_target = 0
-bus = "Master"
-
-[node name="FuelLowSound" type="AudioStreamPlayer" parent="." index="6"]
-
-stream = ExtResource( 6 )
-volume_db = -10.0
-pitch_scale = 1.1
-autoplay = false
 mix_target = 0
 bus = "Master"
 
@@ -194,6 +190,15 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
+[node name="NonCriticalCheckups" type="Timer" parent="." index="24"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
+
 [connection signal="timeout" from="DeathTimer" to="." method="_on_DeathTimer_timeout"]
+
+[connection signal="timeout" from="NonCriticalCheckups" to="." method="_on_NonCriticalCheckups_timeout"]
 
 

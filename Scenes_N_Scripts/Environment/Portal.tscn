@@ -1,0 +1,104 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Resources/Artwork/Portal/Rainbow_Splash_zoom5.png" type="Texture" id=1]
+[ext_resource path="res://Resources/Artwork/Portal/Rainbow_Splash_zoom4.png" type="Texture" id=2]
+[ext_resource path="res://Resources/Artwork/Portal/Rainbow_Splash_zoom3.png" type="Texture" id=3]
+[ext_resource path="res://Resources/Artwork/Portal/Rainbow_Splash_zoom2.png" type="Texture" id=4]
+[ext_resource path="res://Resources/Artwork/Portal/Rainbow_Splash_zoom1.png" type="Texture" id=5]
+[ext_resource path="res://Resources/Artwork/Player/Space_ship_ring.png" type="Texture" id=6]
+
+[sub_resource type="Animation" id=1]
+
+resource_name = "PortalAnimation"
+length = 0.8
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 360.0, 180.0, 0.0 ]
+}
+
+[node name="Portal" type="Node2D"]
+
+_sections_unfolded = [ "Transform" ]
+
+[node name="WarpHolder" type="Node2D" parent="." index="0"]
+
+rotation = 1.79279
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Rainbow_Splash_zoom5" type="Sprite" parent="WarpHolder" index="0"]
+
+visible = false
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Rainbow_Splash_zoom4" type="Sprite" parent="WarpHolder" index="1"]
+
+visible = false
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Rainbow_Splash_zoom3" type="Sprite" parent="WarpHolder" index="2"]
+
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Rainbow_Splash_zoom2" type="Sprite" parent="WarpHolder" index="3"]
+
+visible = false
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Rainbow_Splash_zoom1" type="Sprite" parent="WarpHolder" index="4"]
+
+visible = false
+rotation = -2.91263
+scale = Vector2( 1, 1 )
+texture = ExtResource( 5 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PortalSpinner" type="AnimationPlayer" parent="WarpHolder" index="5"]
+
+root_node = NodePath("..")
+autoplay = "PortalAnimation"
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/PortalAnimation = SubResource( 1 )
+blend_times = [  ]
+
+[node name="Space_ship_ring" type="Sprite" parent="." index="1"]
+
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+
