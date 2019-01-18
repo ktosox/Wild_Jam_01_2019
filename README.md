@@ -22,6 +22,8 @@ don't care
 
 - a title would be nice
 
+- possibly a cool down to engine
+
 - ~~solidoying~~ ~~silidofing~~ making the math solid
 
 - adding a win condition
@@ -34,7 +36,7 @@ don't care
 
 - add a direction indicator for exit? something like an arrow?
 
-- implenet lööps, collect them for points
+- implenet lï¿½ï¿½ps, collect them to gain points
 
 - solidifying "Menu"
 
