@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes_N_Scripts/GameFolder/GameScene.gd" type="Script" id=1]
 [ext_resource path="res://Scenes_N_Scripts/GameFolder/SoundBox.tscn" type="PackedScene" id=2]
@@ -7,12 +7,11 @@
 [ext_resource path="res://Scenes_N_Scripts/PlayerStuff/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes_N_Scripts/GameFolder/RainbowNado.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Resources/Audio/Burnt_Spirit_short.ogg" type="AudioStream" id=7]
-[ext_resource path="res://Scenes_N_Scripts/Environment/Wall2.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes_N_Scripts/Environment/Wall1.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scenes_N_Scripts/Environment/FuelCanister.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Scenes_N_Scripts/Environment/Bomb.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes_N_Scripts/Environment/FuelCanister.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes_N_Scripts/Environment/Bomb.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes_N_Scripts/GameFolder/basic_tileset.tres" type="TileSet" id=10]
 
-[node name="MainGameNode" type="Node"]
+[node name="MainGameNode" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -82,78 +81,22 @@ autoplay = true
 mix_target = 0
 bus = "Master"
 
-[node name="StaticBody2D" parent="." index="8" instance=ExtResource( 8 )]
-
-position = Vector2( -269.43, 231.482 )
-
-[node name="StaticBody2D12" parent="." index="9" instance=ExtResource( 8 )]
-
-position = Vector2( 306.606, 402.612 )
-
-[node name="StaticBody2D2" parent="." index="10" instance=ExtResource( 8 )]
-
-position = Vector2( -287.683, -558.241 )
-
-[node name="StaticBody2D9" parent="." index="11" instance=ExtResource( 8 )]
-
-position = Vector2( 1289.1, -554.036 )
-
-[node name="StaticBody2D3" parent="." index="12" instance=ExtResource( 8 )]
-
-position = Vector2( 445.511, 86.7617 )
-rotation = 0.523599
-_sections_unfolded = [ "Transform" ]
-
-[node name="StaticBody2D11" parent="." index="13" instance=ExtResource( 8 )]
-
-position = Vector2( 1076.82, 50.6999 )
-rotation = 1.91986
-_sections_unfolded = [ "Transform" ]
-
-[node name="StaticBody2D4" parent="." index="14" instance=ExtResource( 9 )]
-
-position = Vector2( 674.201, -287.73 )
-rotation = 2.0944
-_sections_unfolded = [ "Transform" ]
-
-[node name="StaticBody2D7" parent="." index="15" instance=ExtResource( 9 )]
-
-position = Vector2( 1523.53, -293.78 )
-rotation = 2.0944
-_sections_unfolded = [ "Transform" ]
-
-[node name="StaticBody2D5" parent="." index="16" instance=ExtResource( 9 )]
-
-position = Vector2( 186.31, -513.489 )
-
-[node name="StaticBody2D10" parent="." index="17" instance=ExtResource( 9 )]
-
-position = Vector2( 792.122, 367.41 )
-
-[node name="StaticBody2D6" parent="." index="18" instance=ExtResource( 8 )]
-
-position = Vector2( 695.447, -556.357 )
-
-[node name="StaticBody2D8" parent="." index="19" instance=ExtResource( 8 )]
-
-position = Vector2( 1461.3, 284.824 )
-
-[node name="FuelCanister" parent="." index="20" instance=ExtResource( 10 )]
+[node name="FuelCanister" parent="." index="8" instance=ExtResource( 8 )]
 
 position = Vector2( 1396.89, 13.9459 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Bomb2" parent="." index="21" instance=ExtResource( 11 )]
+[node name="Bomb2" parent="." index="9" instance=ExtResource( 9 )]
 
 position = Vector2( 1064.59, -338.103 )
 scale = Vector2( 1, 1 )
 
-[node name="Bomb" parent="." index="22" instance=ExtResource( 11 )]
+[node name="Bomb" parent="." index="10" instance=ExtResource( 9 )]
 
 position = Vector2( 495.916, -99.4846 )
 scale = Vector2( 1, 1 )
 
-[node name="Label2" type="Label" parent="." index="23"]
+[node name="Label2" type="Label" parent="." index="11"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -174,7 +117,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Label3" type="Label" parent="." index="24"]
+[node name="Label3" type="Label" parent="." index="12"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -194,6 +137,27 @@ text = "fuel - probably work sprite"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+
+[node name="TileMap" type="TileMap" parent="." index="13"]
+
+mode = 0
+tile_set = ExtResource( 10 )
+cell_size = Vector2( 300, 300 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( -655356, 4, 0, -131068, 5, 0, 2, 1, 0, 11, 1, 0 )
+_sections_unfolded = [ "Cell" ]
 
 [connection signal="timeout" from="DeathTimer" to="." method="_on_DeathTimer_timeout"]
 

@@ -1,0 +1,112 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Resources/Artwork/Construction/space_floor1.png" type="Texture" id=1]
+[ext_resource path="res://Resources/Artwork/Construction/space_floor2.png" type="Texture" id=2]
+[ext_resource path="res://Resources/Artwork/Construction/space_floor3.png" type="Texture" id=3]
+[ext_resource path="res://Resources/Artwork/Construction/space_floor4.png" type="Texture" id=4]
+[ext_resource path="res://Resources/Artwork/Construction/space_block.png" type="Texture" id=5]
+[ext_resource path="res://Resources/Artwork/Construction/space_gate.png" type="Texture" id=6]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[node name="Tileset" type="Node2D"]
+
+[node name="space_floor1" type="Sprite" parent="." index="0"]
+
+position = Vector2( 80, 80 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="space_floor2" type="Sprite" parent="." index="1"]
+
+position = Vector2( 240, 80 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="space_floor3" type="Sprite" parent="." index="2"]
+
+position = Vector2( 560, 80 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="space_floor4" type="Sprite" parent="." index="3"]
+
+position = Vector2( 400, 80 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="space_block" type="Sprite" parent="." index="4"]
+
+position = Vector2( 80, 310 )
+scale = Vector2( 0.347826, 0.347826 )
+texture = ExtResource( 5 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="space_block" index="0"]
+
+position = Vector2( 3.05176e-05, -3.8147e-05 )
+scale = Vector2( 6.69643, 6.69643 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.6
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="space_block/StaticBody2D" index="0"]
+
+position = Vector2( -8.10623e-06, 5.72205e-06 )
+scale = Vector2( 3.28205, 3.28205 )
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="space_gate" type="Sprite" parent="." index="5"]
+
+position = Vector2( 340, 310 )
+scale = Vector2( 0.41, 0.41 )
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="space_gate" index="0"]
+
+position = Vector2( -1.52588e-05, 0 )
+scale = Vector2( 13.3929, 6.69643 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.2
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="space_gate/StaticBody2D" index="0"]
+
+position = Vector2( 2.66667, -6.19888e-06 )
+scale = Vector2( 3.07692, 3.28205 )
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+

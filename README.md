@@ -16,7 +16,8 @@ don't care
 
 - ~~add particle generator to engine~~ done
 
-- transition between screens, possibly a screen between game levels - warp/travell screen and general fade to black
+- ~~transition between screens, possibly a screen between game levels - warp/travell screen and general fade to black~~
+    partailly done, it's implementing
 
 ## Version 0.8
 
@@ -28,7 +29,7 @@ don't care
 
 - adding a win condition
 
-- bake better body in blender
+- ~~bake better body in blender~~ done
 
 - add a swirl sound effect for the edge
 
@@ -42,7 +43,7 @@ don't care
 
 - adding sliders for sund in main menu
 
-- create a tile map with walls
+- ~~create a tile map with walls~~
 
 - level desgin
 

@@ -3,7 +3,7 @@
 [ext_resource path="res://Scenes_N_Scripts/GameFolder/RainbowNado.gd" type="Script" id=1]
 [ext_resource path="res://Scenes_N_Scripts/GameFolder/Tornado_layer_base.tscn" type="PackedScene" id=2]
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
 radius = 481.019
@@ -48,7 +48,7 @@ audio_bus_name = "Master"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
 
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
 
