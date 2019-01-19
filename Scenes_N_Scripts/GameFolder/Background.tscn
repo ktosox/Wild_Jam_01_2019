@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scenes_N_Scripts/GameFolder/Background.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Artwork/Textures/Black_Mud.png" type="Texture" id=2]
+[ext_resource path="res://Resources/Artwork/Textures/Electric_Void_Blue.png" type="Texture" id=2]
 
-[node name="Background" type="Control" index="0"]
+[node name="Background" type="Control"]
 
 anchor_left = 0.0
 anchor_top = 0.0

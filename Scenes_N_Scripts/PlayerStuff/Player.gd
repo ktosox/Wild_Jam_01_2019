@@ -4,7 +4,7 @@ var GameScenePointer
 var ScreenScrollSpeed = 90
 
 var cameraStart = Vector2(0.4,0.4)
-var cameraDefault = Vector2(1.4,1.4)
+var cameraDefault = Vector2(1.2,1.2)
 
 var zoomOut = true
 var zoomIn = false
@@ -34,9 +34,11 @@ func _process(delta):
 		else:
 			zoomIn = false
 			zoomInDone()
-	if(!$Camera2D/Area2D.overlaps_body($PlayerShip)):
-			$Camera2D.global_position = $Camera2D.global_position + $PlayerShip.linear_velocity * delta
-			pass
+
+	$Camera2D.global_position = $PlayerShip.global_position
+	#if(!$Camera2D/Area2D.overlaps_body($PlayerShip)):
+			#$Camera2D.global_position = $Camera2D.global_position + $PlayerShip.linear_velocity * delta
+			
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
 	pass
@@ -57,7 +59,9 @@ func zoomOutDone():
 func zoomInDone():
 	pass
 
-
+func gainLoop(value):
+	$Camera2D/Label3.text =  str(value)
+	pass
 
 
 	

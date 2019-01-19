@@ -1,17 +1,19 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scenes_N_Scripts/GameFolder/GameScene.gd" type="Script" id=1]
 [ext_resource path="res://Scenes_N_Scripts/GameFolder/SoundBox.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes_N_Scripts/GameFolder/Background.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes_N_Scripts/Environment/Portal.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes_N_Scripts/PlayerStuff/Player.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes_N_Scripts/GameFolder/RainbowNado.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Resources/Audio/Burnt_Spirit_short.ogg" type="AudioStream" id=7]
-[ext_resource path="res://Scenes_N_Scripts/Environment/FuelCanister.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes_N_Scripts/Environment/Bomb.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scenes_N_Scripts/GameFolder/basic_tileset.tres" type="TileSet" id=10]
+[ext_resource path="res://Scenes_N_Scripts/Environment/Loop.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes_N_Scripts/Environment/Portal.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes_N_Scripts/Environment/Bomb.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes_N_Scripts/GameFolder/TileSet.tres" type="TileSet" id=7]
+[ext_resource path="res://Scenes_N_Scripts/PlayerStuff/Player.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes_N_Scripts/GameFolder/RainbowNado.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Resources/Audio/Burnt_Spirit_short.ogg" type="AudioStream" id=10]
+[ext_resource path="res://Resources/Artwork/Construction/start_clamp.png" type="Texture" id=11]
+[ext_resource path="res://Resources/Artwork/Construction/start_clamp_mid.png" type="Texture" id=12]
 
-[node name="MainGameNode" type="Node"]
+[node name="MainGameNode" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -24,120 +26,29 @@ margin_top = -302.0
 margin_right = -397.0
 margin_bottom = -302.0
 
-[node name="Portal" parent="." index="2" instance=ExtResource( 4 )]
+[node name="Loop2" parent="." index="2" instance=ExtResource( 4 )]
 
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( 1495.18, -114.37 )
 
-[node name="Player" parent="." index="3" instance=ExtResource( 5 )]
+[node name="Loop" parent="." index="3" instance=ExtResource( 4 )]
 
-position = Vector2( -452.527, -389.349 )
+position = Vector2( 1559.58, 167.348 )
+
+[node name="Portal" parent="." index="4" instance=ExtResource( 5 )]
+
+position = Vector2( 2043.55, 137.316 )
+
+[node name="Bomb" parent="." index="5" instance=ExtResource( 6 )]
+
+position = Vector2( 497.816, -142.498 )
 scale = Vector2( 1, 1 )
 
-[node name="Label" type="Label" parent="." index="4"]
+[node name="TileMap" type="TileMap" parent="." index="6"]
 
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = -506.0
-margin_top = -401.0
-margin_right = -239.0
-margin_bottom = -288.0
-rect_scale = Vector2( 3, 3 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-text = "PRESS UP ARROW TO ACCELERATE
-TOUCHING THE RAINBOWNADO = DEATH"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Focus", "Hint", "Margin", "Mouse", "Rect", "Size Flags", "Theme", "custom_colors", "custom_constants", "custom_fonts" ]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="RainbowNado" parent="." index="5" instance=ExtResource( 6 )]
-
-position = Vector2( -1142.54, -167.791 )
-scale = Vector2( 1, 1 )
-
-[node name="Music" type="AudioStreamPlayer" parent="." index="6"]
-
-stream = ExtResource( 7 )
-volume_db = -8.0
-pitch_scale = 1.1
-autoplay = true
-mix_target = 0
-bus = "Master"
-
-[node name="FuelCanister" parent="." index="7" instance=ExtResource( 8 )]
-
-position = Vector2( 1396.89, 13.9459 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="Bomb2" parent="." index="8" instance=ExtResource( 9 )]
-
-position = Vector2( 1064.59, -338.103 )
-scale = Vector2( 1, 1 )
-
-[node name="Bomb" parent="." index="9" instance=ExtResource( 9 )]
-
-position = Vector2( 495.916, -99.4846 )
-scale = Vector2( 1, 1 )
-
-[node name="Label2" type="Label" parent="." index="10"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 412.0
-margin_top = -167.0
-margin_right = 575.0
-margin_bottom = -153.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-text = "Bomb - placehoder sprite"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="Label3" type="Label" parent="." index="11"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 1287.0
-margin_top = -62.0
-margin_right = 1454.0
-margin_bottom = -14.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-text = "fuel - probably work sprite"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="TileMap" type="TileMap" parent="." index="12"]
-
-visible = false
 mode = 0
-tile_set = ExtResource( 10 )
-cell_size = Vector2( 300, 300 )
-cell_quadrant_size = 8
+tile_set = ExtResource( 7 )
+cell_size = Vector2( 80, 80 )
+cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 cell_half_offset = 2
 cell_tile_origin = 0
@@ -150,7 +61,64 @@ collision_layer = 1
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( -655356, 4, 0, -131068, 5, 0, 2, 1, 0, 11, 1, 0 )
+tile_data = PoolIntArray( -458758, -1610612732, 0, -458755, -1610612731, 0, -524288, 4, 0, -524283, 4, 0, -524278, -1610612731, 0, -327670, -1610612732, 0, -196610, -1610612736, 0, -262142, -1610612736, 0, -131078, -1610612732, 0, -65531, -1610612732, 0, 1, -1610612733, 0, 10, -1610612736, 0, 196602, -1610612732, 0, 327677, -1610612731, 0, 262144, -1610612731, 0, 262147, 4, 0, 262152, 4, 0 )
 _sections_unfolded = [ "Cell" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Player" parent="." index="7" instance=ExtResource( 8 )]
+
+visible = false
+position = Vector2( -452.527, -389.349 )
+scale = Vector2( 1, 1 )
+
+[node name="RainbowNado" parent="." index="8" instance=ExtResource( 9 )]
+
+position = Vector2( -855.838, -48.5283 )
+scale = Vector2( 1, 1 )
+
+[node name="Music" type="AudioStreamPlayer" parent="." index="9"]
+
+stream = ExtResource( 10 )
+volume_db = -8.0
+pitch_scale = 1.1
+autoplay = true
+mix_target = 0
+bus = "Master"
+
+[node name="SartingClamp" type="Node2D" parent="." index="10"]
+
+position = Vector2( -192.114, 0 )
+scale = Vector2( 0.5, 0.5 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Clamps" type="Node2D" parent="SartingClamp" index="0"]
+
+position = Vector2( 393.069, 0 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="start_clamp" type="Sprite" parent="SartingClamp/Clamps" index="0"]
+
+position = Vector2( 0, 180 )
+rotation = -3.14159
+texture = ExtResource( 11 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="start_clamp2" type="Sprite" parent="SartingClamp/Clamps" index="1"]
+
+position = Vector2( 0, -180 )
+texture = ExtResource( 11 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="start_clamp_mid" type="Sprite" parent="SartingClamp" index="1"]
+
+position = Vector2( -60.8512, -1.69971 )
+rotation = 3.14159
+texture = ExtResource( 12 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 

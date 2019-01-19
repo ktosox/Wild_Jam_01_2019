@@ -1,0 +1,86 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Resources/Artwork/Construction/space_floor2.png" type="Texture" id=1]
+[ext_resource path="res://Resources/Artwork/Construction/space_floor1.png" type="Texture" id=2]
+[ext_resource path="res://Resources/Artwork/Construction/space_floor3.png" type="Texture" id=3]
+[ext_resource path="res://Resources/Artwork/Construction/space_floor4.png" type="Texture" id=4]
+[ext_resource path="res://Resources/Artwork/Construction/block_long1.png" type="Texture" id=5]
+[ext_resource path="res://Resources/Artwork/Construction/space_block.png" type="Texture" id=6]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 180, 100 )
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 100, 100 )
+
+[node name="Node2D" type="Node2D"]
+
+scale = Vector2( 0.5, 0.5 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="space_floor2" type="Sprite" parent="." index="0"]
+
+position = Vector2( 360, 360 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="space_floor1" type="Sprite" parent="." index="1"]
+
+position = Vector2( 120, 360 )
+texture = ExtResource( 2 )
+
+[node name="space_floor3" type="Sprite" parent="." index="2"]
+
+position = Vector2( 600, 360 )
+texture = ExtResource( 3 )
+
+[node name="space_floor4" type="Sprite" parent="." index="3"]
+
+position = Vector2( 840, 360 )
+texture = ExtResource( 4 )
+
+[node name="block_long1" type="Sprite" parent="." index="4"]
+
+position = Vector2( 440, 120 )
+texture = ExtResource( 5 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="block_long1" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="block_long1/StaticBody2D" index="0"]
+
+shape = SubResource( 2 )
+
+[node name="space_block" type="Sprite" parent="." index="5"]
+
+position = Vector2( 120, 120 )
+texture = ExtResource( 6 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="space_block" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="space_block/StaticBody2D" index="0"]
+
+position = Vector2( -4.76837e-06, -6.67572e-06 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+

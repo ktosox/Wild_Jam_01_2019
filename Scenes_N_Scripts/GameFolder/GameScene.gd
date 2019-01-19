@@ -1,5 +1,7 @@
 extends Node
 
+var Score = 0
+
 var fuelLevel = 500
 var fuelLevelMax = 1000
 var fuelChangeRate = 3
@@ -54,7 +56,7 @@ func updateGlobalPlayerData(delta):
 
 func process_collision(projectile):
 	if (projectile.projectileType == 1):
-		fuelLevel +=600
+		fuelLevel +=350
 		projectile.get_parent().useUp()
 		print("FUEL")
 	if (projectile.projectileType == 2):
@@ -63,10 +65,15 @@ func process_collision(projectile):
 		$Player/PlayerShip.linear_velocity.y +=($Player/PlayerShip.global_position.y - projectile.global_position.y) *15
 		print("BOOM")
 	if (projectile.projectileType == 3):
-		#projectile.get_parent()
+		projectile.get_parent().gainLoop()
+		Score += 1
 		print("LOOP")
+		$Player.gainLoop(Score)
 	projectile.unLive()
 	
+
+func winGame():
+		get_tree().change_scene("res://Scenes_N_Scripts/Menu_Scene.tscn")
 
 func killPlayer():
 	if(!playerDied):

@@ -15,7 +15,7 @@
 [ext_resource path="res://Resources/Audio/pick_up_best.wav" type="AudioStream" id=13]
 [ext_resource path="res://Resources/Artwork/Player/player_particle_death.tres" type="Material" id=14]
 
-[sub_resource type="CircleShape2D" id=4]
+[sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
 radius = 10.0
@@ -41,13 +41,13 @@ tracks/0/keys = {
 [sub_resource type="CircleShape2D" id=3]
 
 custom_solver_bias = 0.0
-radius = 47.0082
+radius = 94.176
 
-[node name="Player" type="Node2D" index="0"]
+[node name="Player" type="Node2D"]
 
 scale = Vector2( 0.8, 0.8 )
 script = ExtResource( 1 )
-_sections_unfolded = [ "Linear", "Transform", "Visibility" ]
+_sections_unfolded = [ "Linear", "Transform", "Visibility", "Z Index" ]
 
 [node name="Camera2D" type="Camera2D" parent="." index="0"]
 
@@ -73,49 +73,28 @@ drag_margin_bottom = 0.2
 editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
-_sections_unfolded = [ "Offset", "Smoothing" ]
+_sections_unfolded = [ "Drag Margin", "Editor", "Limit", "Offset", "Smoothing" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="SceneManager" parent="Camera2D" index="0" instance=ExtResource( 2 )]
 
-margin_left = -600.0
-margin_top = -400.0
-margin_right = 600.0
-margin_bottom = 336.0
+margin_left = -601.0
+margin_top = -401.0
+margin_right = 599.0
+margin_bottom = 335.0
 rect_min_size = Vector2( 1200, 800 )
 
-[node name="Label2" type="Label" parent="Camera2D" index="1"]
+[node name="Label" type="Label" parent="Camera2D" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -557.0
-margin_top = -418.0
-margin_right = -452.0
-margin_bottom = -379.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-text = "CORE HEAT"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="Label" type="Label" parent="Camera2D" index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = -520.0
+margin_left = -521.0
 margin_top = 41.0
-margin_right = -321.0
+margin_right = -322.0
 margin_bottom = 174.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -130,43 +109,16 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Grow Direction", "Hint", "Margin", "Mouse", "Size Flags", "custom_colors", "custom_fonts", "custom_styles" ]
 
-[node name="FuelBar" type="ProgressBar" parent="Camera2D" index="3"]
+[node name="CoreHeat" type="ProgressBar" parent="Camera2D" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -554.0
-margin_top = 530.0
-margin_right = -98.0
-margin_bottom = 613.0
-rect_rotation = 270.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 0
-min_value = 0.0
-max_value = 1000.0
-step = 1.0
-page = 0.0
-value = 30.0
-exp_edit = false
-rounded = false
-percent_visible = false
-_sections_unfolded = [ "Focus", "Hint", "Percent", "Rect" ]
-
-[node name="CoreHeat" type="ProgressBar" parent="Camera2D" index="4"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = -561.0
-margin_top = -77.0
-margin_right = -260.0
-margin_bottom = 23.0
+margin_left = -562.0
+margin_top = -78.0
+margin_right = -261.0
+margin_bottom = 22.0
 rect_rotation = 270.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -184,7 +136,76 @@ rounded = false
 percent_visible = false
 _sections_unfolded = [ "Grow Direction", "Percent", "Rect" ]
 
-[node name="Area2D" type="Area2D" parent="Camera2D" index="5"]
+[node name="FuelBar" type="ProgressBar" parent="Camera2D" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -555.0
+margin_top = 529.0
+margin_right = -98.9999
+margin_bottom = 612.0
+rect_rotation = 270.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+min_value = 0.0
+max_value = 1000.0
+step = 1.0
+page = 0.0
+value = 30.0
+exp_edit = false
+rounded = false
+percent_visible = false
+_sections_unfolded = [ "Focus", "Hint", "Percent", "Rect" ]
+
+[node name="Label2" type="Label" parent="Camera2D" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -558.0
+margin_top = -419.0
+margin_right = -453.0
+margin_bottom = -380.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "CORE HEAT"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label3" type="Label" parent="Camera2D" index="5"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -433.0
+margin_top = -353.0
+margin_right = -393.0
+margin_bottom = -339.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "0"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Area2D" type="Area2D" parent="Camera2D" index="6"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -202,7 +223,7 @@ __meta__ = {
 
 position = Vector2( 4.41142, -3.27003 )
 scale = Vector2( 12.9877, 12.6301 )
-shape = SubResource( 4 )
+shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="PlayerShip" type="RigidBody2D" parent="." index="1"]
@@ -240,8 +261,9 @@ autostart = false
 
 [node name="Engine" type="Node2D" parent="PlayerShip" index="1"]
 
+editor/display_folded = true
 position = Vector2( 0, 0.504218 )
-scale = Vector2( 0.3, 0.2 )
+scale = Vector2( 0.5, 0.3 )
 script = ExtResource( 4 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 __meta__ = {
@@ -295,7 +317,8 @@ bus = "Master"
 
 [node name="Body" type="Node2D" parent="PlayerShip" index="2"]
 
-scale = Vector2( 0.1, 0.1 )
+editor/display_folded = true
+scale = Vector2( 0.18, 0.18 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
