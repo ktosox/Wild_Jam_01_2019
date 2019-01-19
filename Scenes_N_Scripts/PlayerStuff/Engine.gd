@@ -1,7 +1,7 @@
 extends Node2D
 var spinNotLocked = true #spins if true
-var spinRate = 5.4
-
+var spinRate = 5.8
+var cooldownSet = false
 
 func _ready():
 	pass
@@ -9,7 +9,7 @@ func _ready():
 func _process(delta):
 	if(!$EngineBuzz.playing):
 		$EngineBuzz.play()
-		
+		pass
 	if(spinNotLocked):
 		rotate(delta*spinRate)
 
@@ -18,3 +18,6 @@ func _process(delta):
 func emitSmoke():
 	$SmokeEmitter.restart()
 	
+func resetCooldown():
+	$Polygon2D.position.y = -120
+	cooldownSet = true

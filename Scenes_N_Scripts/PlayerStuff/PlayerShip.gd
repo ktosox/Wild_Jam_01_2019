@@ -2,7 +2,7 @@ extends RigidBody2D
 
 var alive = true
 var engineReady = true
-var speedMultiplayer = 600
+var speedMultiplayer = 800
 var coreDropPercent = 0.4
 var velocity = Vector2()
 
@@ -15,13 +15,13 @@ func get_input():
 		engineReady = false
 		$EngineCooldown.start()
 		$Engine.emitSmoke()
-
+		$Engine/Polygon2D.modulate.a = 0.2
 		if ($SoundImpulse.playing == false):
 			$SoundImpulse.play()
 		$Engine.spinNotLocked = false # lock engine spin
 		velocity.x = sin(deg2rad(currentAngle))
 		velocity.y = cos(deg2rad(currentAngle+180))
-		velocity = velocity.normalized() * (get_parent().GameScenePointer.corePowerLevel * coreDropPercent * 1.4) * speedMultiplayer
+		velocity = velocity.normalized() * (get_parent().GameScenePointer.corePowerLevel * coreDropPercent * 1.9) * speedMultiplayer
 		get_parent().GameScenePointer.corePowerLevel = get_parent().GameScenePointer.corePowerLevel - (get_parent().GameScenePointer.corePowerLevel * coreDropPercent)
 	if Input.is_action_just_released('ui_up'):
 		$Engine.spinNotLocked = true # unlock engine spin
@@ -35,5 +35,6 @@ func _physics_process(delta):
 
 func _on_EngineCooldown_timeout():
 	engineReady = true
+	$Engine/Polygon2D.modulate.a = 1
 	$EngineCooldown.stop()
 	pass # replace with function body

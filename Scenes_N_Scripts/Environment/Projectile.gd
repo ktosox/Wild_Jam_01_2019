@@ -11,7 +11,7 @@ var toBeRemoved = false #clean up var
 # var b = "textvar"
 
 func _ready():
-	gameScenePointer = get_parent()
+	#gameScenePointer = get_parent()
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
 	pass

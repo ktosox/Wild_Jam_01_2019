@@ -18,5 +18,11 @@ func _process(delta):
 
 func _on_Area2D_body_entered(body):
 	if(body.get_class()=="RigidBody2D"):
-		get_parent().killPlayer()
+		self.visible=true
+	pass # replace with function body
+
+
+func _on_Area2D_body_exited(body):
+	if(body.get_class()=="RigidBody2D"):
+		get_parent().killPlayer()	
 	pass # replace with function body

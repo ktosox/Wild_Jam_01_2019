@@ -16,6 +16,6 @@ func _ready():
 
 
 func _on_Area2D_body_entered(body):
-	get_parent().winGame()
-	print("WIN")
+	if(body.get_class()=="RigidBody2D"):
+		get_parent().winGame()
 	pass # replace with function body

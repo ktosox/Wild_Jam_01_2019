@@ -45,16 +45,19 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 13.0
-margin_right = 449.0
-margin_bottom = 27.0
+margin_left = 43.0
+margin_right = 406.0
+margin_bottom = 65.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-text = "This is where any info regarding creation / assets / source / etc. will go"
+text = "I was going to write something here regarding this game,
+but the deadline is in 30 minutes
+and I still got things to fix
+so GL & HF I guess"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1

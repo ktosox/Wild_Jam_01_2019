@@ -9,7 +9,9 @@ func _ready():
 	# Initialization here
 	pass
 
-#func _process(delta):
+func _process(delta):
+	if(Input.is_action_just_released("ui_up")):
+		get_tree().change_scene("res://Scenes_N_Scripts/Menu_Scene.tscn")
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
 #	pass

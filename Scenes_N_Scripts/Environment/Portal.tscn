@@ -34,6 +34,7 @@ radius = 118.44
 
 [node name="Portal" type="Node2D"]
 
+position = Vector2( 618.55, 383.273 )
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
@@ -64,6 +65,7 @@ __meta__ = {
 
 [node name="Rainbow_Splash_zoom3" type="Sprite" parent="WarpHolder" index="2"]
 
+visible = false
 texture = ExtResource( 4 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
@@ -81,7 +83,6 @@ __meta__ = {
 
 [node name="Rainbow_Splash_zoom1" type="Sprite" parent="WarpHolder" index="4"]
 
-visible = false
 rotation = -2.91263
 texture = ExtResource( 6 )
 _sections_unfolded = [ "Transform" ]
@@ -116,10 +117,16 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
 
 shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 

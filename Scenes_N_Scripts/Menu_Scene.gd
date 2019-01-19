@@ -29,3 +29,15 @@ func _on_Button3_pressed():
 func _on_Button2_pressed():
 	get_tree().change_scene("res://Scenes_N_Scripts/About.tscn")
 	pass # replace with function body
+
+
+
+
+func _on_MusicSlider_value_changed(value):
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master") ,value)
+	pass # replace with function body
+
+
+func _on_AudioSlider_value_changed(value):
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master") ,value)
+	pass # replace with function body

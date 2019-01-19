@@ -10,8 +10,18 @@ var corePowerLevelMax = 1000
 var coreChangeRate = 120
 var playerDied = false
 var playerBase = load("res://Scenes_N_Scripts/PlayerStuff/Player.tscn") # Load Player Scene
+var bombBase = load("res://Scenes_N_Scripts/Environment/Bomb.tscn")
+var loopBase = load("res://Scenes_N_Scripts/Environment/Loop.tscn")
 
-var directionRainbownado = Vector2(90,0)
+
+
+var directionRainbownado = Vector2(0,0)
+var rainbowPart = 0
+
+var cameraEndZoom = Vector2(3.6,3.6)
+var cameraEndPoistion = Vector2(3435,130)
+var bombSpawnPoint = Vector2(2765,130)
+
 
 func _ready():
 	#$Player.GameScenePointer = self
@@ -25,6 +35,9 @@ func _ready():
 
 
 func _process(delta):
+	if(rainbowPart != 0):
+		
+		pass
 	$RainbowNado.move_and_slide(directionRainbownado)
 	if(fuelLevel>fuelLevelMax):
 		fuelLevel=fuelLevelMax
@@ -35,21 +48,12 @@ func _process(delta):
 	if(corePowerLevel<0):
 		corePowerLevel = 0
 	updateGlobalPlayerData(delta)
-	if(fuelLevel<100 && !$SoundBox.playLowFuel):
-		$SoundBox.startLowFuel()
-	if(fuelLevel>150 && $SoundBox.playLowFuel):
-		$SoundBox.stopLowFuel()
-		
-	if(corePowerLevel>800 && !$SoundBox.playCoreHeat):
-		$SoundBox.startCoreHeat()
-	if(corePowerLevel<800 && $SoundBox.playCoreHeat):
-		$SoundBox.stopCoreHeat()
 		
 func updateGlobalPlayerData(delta):
 	corePowerLevel += (fuelLevel/fuelLevelMax) * coreChangeRate * delta
 	fuelLevel -= (corePowerLevel/corePowerLevelMax) * fuelChangeRate * delta
-	$Player.updateCoreRotation(corePowerLevel)
-	$Player.updateFuelLevel(fuelLevel)
+	#$Player.updateCoreRotation(corePowerLevel)
+	#$Player.updateFuelLevel(fuelLevel)
 	#decrease fuel and power * delta
 	#send updated values to Player
 	pass
@@ -58,27 +62,56 @@ func process_collision(projectile):
 	if (projectile.projectileType == 1):
 		fuelLevel +=350
 		projectile.get_parent().useUp()
-		print("FUEL")
-	if (projectile.projectileType == 2):
-		projectile.get_parent().explode()
-		$Player/PlayerShip.linear_velocity.x +=($Player/PlayerShip.global_position.x - projectile.global_position.x) *15
-		$Player/PlayerShip.linear_velocity.y +=($Player/PlayerShip.global_position.y - projectile.global_position.y) *15
-		print("BOOM")
 	if (projectile.projectileType == 3):
 		projectile.get_parent().gainLoop()
 		Score += 1
-		print("LOOP")
-		$Player.gainLoop(Score)
+		if (Score>7):
+			unlockPortal()
+		$Camera2D/SideBar/VBoxContainer/Label3.text = str(Score)
+		#$Player.gainLoop(Score)
 	projectile.unLive()
 	
 
+func unlockPortal():
+	#plasy sound
+	#show label for exit
+	#stop spawning loops
+	pass
+
 func winGame():
-		get_tree().change_scene("res://Scenes_N_Scripts/Menu_Scene.tscn")
+	if(Score>7):
+		get_tree().change_scene("res://Scenes_N_Scripts/GameFolder/VictoryScreen.tscn")
+	pass
+		#switch to win screen if 20 loops
+
+		
 
 func killPlayer():
 	if(!playerDied):
 		playerDied = true
 		$Player.deathEvent(10)
+		$DeathTimer.start()
 	pass
 
 
+
+
+func _on_LevelSwitcher_body_entered(body):
+	#start main game
+	if(body.get_class()=="RigidBody2D"):
+		$Camera2D.zoom = cameraEndZoom 
+		$Camera2D.position = cameraEndPoistion
+
+	pass # replace with function body
+
+
+
+
+
+
+
+
+
+func _on_DeathTimer_timeout():
+	get_tree().change_scene("res://Scenes_N_Scripts/GameFolder/DeathScreen.tscn")
+	pass # replace with function body
