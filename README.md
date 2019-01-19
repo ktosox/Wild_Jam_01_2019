@@ -10,7 +10,7 @@ don't care
 
 - ~~adding entrance and exit portals~~ done, 1 portal class
 
-- ~~spawn and despawn animations - make it very zoomed at start and zoom out to game mode, at end zoom in and fade out~~ partialy implemented
+- ~~spawn and despawn animations - make it very zoomed at start and zoom out to game mode, at end zoom in and fade out~~ done
 
 - ~~a nice engine buzz? pitch depends on core heat~~ done
 
@@ -21,13 +21,15 @@ don't care
 
 ## Version 0.8
 
+- resize assets - especially the tile map ones
+
 - a title would be nice / prismatic... something
 
-- possibly a cool down to engine
+- ~~possibly a cool down to engine~~ done
 
-- ~~solidoying~~ ~~silidofing~~ making the math solid
+- ~~solidoying~~ ~~silidofing~~ making the math solid, half way there
 
-- adding a win condition
+- adding a win condition - collect x loops to unlock portal
 
 - ~~bake better body in blender~~ done
 
@@ -37,7 +39,7 @@ don't care
 
 ## Version 0.9
 
-- add a direction indicator for exit? something like an arrow?
+- 
 
 - implenet l��ps, collect them to gain points
 
@@ -45,7 +47,7 @@ don't care
 
 - adding sliders for sund in main menu
 
-- ~~create a tile map with walls~~
+- ~~create a tile map with walls~~ needs resizing
 
 - level desgin
 
