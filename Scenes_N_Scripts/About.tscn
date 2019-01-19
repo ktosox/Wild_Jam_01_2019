@@ -45,19 +45,24 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 43.0
-margin_right = 406.0
-margin_bottom = 65.0
+margin_right = 457.0
+margin_bottom = 167.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-text = "I was going to write something here regarding this game,
-but the deadline is in 30 minutes
-and I still got things to fix
-so GL & HF I guess"
+text = "This game was made for the Godot Wild Jam #5
+The theme is \"One Control\" - so you control the ship with only 1 button
+all assets excluding Music were done by
+Graphical assets made in blender / gimp
+non music sound effects generated in LMMS and processed in audacity
+Music by Kevin MacLeod, avilable at incompetech.com
+I gutted 50% of the planned features as the deadline is creeping in
+but I still hope that you have an enjoyable experience
+GL & HF
+yours truly - Ktosox"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1

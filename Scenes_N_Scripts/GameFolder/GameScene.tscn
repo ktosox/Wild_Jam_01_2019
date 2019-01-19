@@ -9,17 +9,17 @@
 [ext_resource path="res://Scenes_N_Scripts/GameFolder/Clamps.gd" type="Script" id=7]
 [ext_resource path="res://Resources/Artwork/Construction/start_clamp.png" type="Texture" id=8]
 [ext_resource path="res://Resources/Artwork/Construction/start_clamp_mid.png" type="Texture" id=9]
-[ext_resource path="res://Scenes_N_Scripts/GameFolder/RainbowNado.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Resources/Audio/Burnt_Spirit_short.ogg" type="AudioStream" id=11]
-[ext_resource path="res://Scenes_N_Scripts/GameFolder/Camera2D.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Scenes_N_Scripts/Environment/Loop.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Resources/Audio/Burnt_Spirit_short.ogg" type="AudioStream" id=10]
+[ext_resource path="res://Scenes_N_Scripts/GameFolder/Camera2D.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes_N_Scripts/Environment/Loop.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes_N_Scripts/GameFolder/RainbowNado.tscn" type="PackedScene" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 24.6221, 100.139 )
 
-[node name="MainGameNode" type="Node" index="0"]
+[node name="MainGameNode" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -59,7 +59,7 @@ collision_layer = 1
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( -1507294, 4, 0, -1507289, 4, 0, -1507284, 4, 0, -1441742, 4, 0, -1376226, 4, 0, -1245159, 4, 0, -1245130, 4, 0, -1114090, -1610612732, 0, -1048517, 4, 0, -983001, 5, 0, -851949, -1610612732, 0, -851923, 5, 0, -851913, 5, 0, -851907, 4, 0, -655323, -1610612736, 0, -589760, -1610612732, 0, -458757, -1610612732, 0, -458754, 4, 0, -524285, 4, 0, -524280, 4, 0, -524275, 4, 0, -524270, -1610612732, 0, -393174, 5, 0, -393165, -1610612735, 0, -327665, -1610612732, 0, -262113, 5, 0, -262084, 5, 0, -262077, -1610612732, 0, -131077, -1610612732, 0, -196590, 4, 0, -131068, -1610612731, 0, -65527, -1610612732, 0, 65603, -1610612732, 0, 196603, -1610612732, 0, 196663, -1610612731, 0, 327678, 4, 0, 262147, 4, 0, 262152, 4, 0, 262157, 4, 0, 262162, 4, 0, 393250, -1610612733, 0, 393283, 5, 0, 458769, -1610612732, 0, 458772, -1610612732, 0, 458794, -1610612731, 0, 458801, -1610612734, 0, 589889, 5, 0, 655421, -1610612731, 0, 786452, -1610612732, 0, 786460, 5, 0, 786495, 5, 0, 983075, -1610612731, 0, 983085, -1610612731, 0, 983101, 5, 0, 1114132, -1610612732, 0, 1179706, 5, 0, 1179709, 5, 0, 1310743, 4, 0, 1310748, 4, 0, 1310753, 4, 0, 1310758, 4, 0, 1310763, 4, 0, 1310768, 4, 0, 1310773, 4, 0 )
+tile_data = PoolIntArray( -1507294, 4, 0, -1507289, 4, 0, -1507284, 4, 0, -1441742, 4, 0, -1376226, 4, 0, -1245159, 4, 0, -1245130, 4, 0, -1114090, -1610612732, 0, -1048548, -1073741819, 0, -1048545, -1073741819, 0, -1048541, -1073741819, 0, -1048533, -1073741819, 0, -1048528, 4, 0, -1048523, 4, 0, -1048517, 4, 0, -983001, 5, 0, -917479, -1073741819, 0, -851949, -1610612732, 0, -851923, 5, 0, -851913, 5, 0, -851907, 4, 0, -655323, -1610612736, 0, -589760, -1610612732, 0, -458757, -1610612732, 0, -458754, 4, 0, -524285, 4, 0, -524280, 4, 0, -524275, 4, 0, -524270, -1610612732, 0, -524254, -1073741820, 0, -458693, 4, 0, -393174, 5, 0, -393171, -1073741820, 0, -393165, -1610612735, 0, -327665, -1610612732, 0, -262084, 5, 0, -262077, -1610612732, 0, -131077, -1610612732, 0, -196590, 4, 0, -131068, -1610612731, 0, -65527, -1610612732, 0, 55, -1073741819, 0, 65603, -1610612732, 0, 196603, -1610612732, 0, 196663, -1610612731, 0, 327678, 4, 0, 262147, 4, 0, 262152, 4, 0, 262157, 4, 0, 262162, 4, 0, 262208, 5, 0, 327711, -1073741819, 0, 393250, -1610612733, 0, 393283, 5, 0, 458769, -1610612732, 0, 458772, -1610612732, 0, 458794, -1610612731, 0, 458801, -1610612734, 0, 458814, 5, 0, 589847, -1073741819, 0, 589889, 5, 0, 655421, -1610612731, 0, 786452, -1610612732, 0, 786455, 4, 0, 786460, 5, 0, 786495, 5, 0, 983070, 4, 0, 983075, -1610612731, 0, 983085, -1610612731, 0, 983090, 4, 0, 983101, 5, 0, 1114132, -1610612732, 0, 1114150, 4, 0, 1179706, 5, 0, 1179709, 5, 0, 1310743, 4, 0, 1310748, 4, 0, 1310753, 4, 0, 1310758, 4, 0, 1310763, 4, 0, 1310768, 4, 0, 1310773, 4, 0 )
 _sections_unfolded = [ "Cell" ]
 __meta__ = {
 "_edit_lock_": true
@@ -106,27 +106,22 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="RainbowNado" parent="." index="5" instance=ExtResource( 10 )]
+[node name="Music" type="AudioStreamPlayer" parent="." index="5"]
 
-visible = false
-position = Vector2( 3442, 15 )
-
-[node name="Music" type="AudioStreamPlayer" parent="." index="6"]
-
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = -8.0
 pitch_scale = 1.1
 autoplay = true
 mix_target = 0
 bus = "Master"
 
-[node name="Camera2D" parent="." index="7" instance=ExtResource( 12 )]
+[node name="Camera2D" parent="." index="6" instance=ExtResource( 11 )]
 
 position = Vector2( 602.358, -39.5375 )
 zoom = Vector2( 1.3, 1.3 )
 _sections_unfolded = [ "Drag Margin", "Editor", "Limit", "Offset", "Smoothing", "Transform" ]
 
-[node name="LevelSwitcher" type="Area2D" parent="." index="8"]
+[node name="LevelSwitcher" type="Area2D" parent="." index="7"]
 
 position = Vector2( 1442.34, 149.655 )
 input_pickable = true
@@ -141,53 +136,58 @@ audio_bus_name = "Master"
 
 shape = SubResource( 1 )
 
-[node name="LoopSpawner" type="Timer" parent="." index="9"]
+[node name="LoopSpawner" type="Timer" parent="." index="8"]
 
 process_mode = 1
 wait_time = 6.0
 one_shot = false
 autostart = false
 
-[node name="DeathTimer" type="Timer" parent="." index="10"]
+[node name="DeathTimer" type="Timer" parent="." index="9"]
 
 process_mode = 1
 wait_time = 3.0
 one_shot = false
 autostart = false
 
-[node name="Loop" parent="." index="11" instance=ExtResource( 13 )]
+[node name="Loop" parent="." index="10" instance=ExtResource( 12 )]
 
 position = Vector2( 2840.64, 606.712 )
 
-[node name="Loop2" parent="." index="12" instance=ExtResource( 13 )]
+[node name="Loop2" parent="." index="11" instance=ExtResource( 12 )]
 
 position = Vector2( 4201.23, -363.963 )
 
-[node name="Loop3" parent="." index="13" instance=ExtResource( 13 )]
+[node name="Loop3" parent="." index="12" instance=ExtResource( 12 )]
 
 position = Vector2( 1582.65, 157.892 )
 
-[node name="Loop4" parent="." index="14" instance=ExtResource( 13 )]
+[node name="Loop4" parent="." index="13" instance=ExtResource( 12 )]
 
 position = Vector2( 3080.16, -661.908 )
 
-[node name="Loop6" parent="." index="15" instance=ExtResource( 13 )]
+[node name="Loop6" parent="." index="14" instance=ExtResource( 12 )]
 
 position = Vector2( 3043.06, -218.458 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Loop5" parent="." index="16" instance=ExtResource( 13 )]
+[node name="Loop5" parent="." index="15" instance=ExtResource( 12 )]
 
 position = Vector2( 4080.24, 692.411 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Loop7" parent="." index="17" instance=ExtResource( 13 )]
+[node name="Loop7" parent="." index="16" instance=ExtResource( 12 )]
 
 position = Vector2( 3957.5, -896.689 )
 
-[node name="Loop8" parent="." index="18" instance=ExtResource( 13 )]
+[node name="Loop8" parent="." index="17" instance=ExtResource( 12 )]
 
-position = Vector2( 2241.72, -534.565 )
+position = Vector2( 2596.38, -557.605 )
+
+[node name="RainbowNado" parent="." index="18" instance=ExtResource( 13 )]
+
+visible = false
+position = Vector2( 3442, 15 )
 
 [connection signal="body_entered" from="LevelSwitcher" to="." method="_on_LevelSwitcher_body_entered"]
 

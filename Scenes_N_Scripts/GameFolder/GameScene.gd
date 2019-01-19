@@ -2,7 +2,7 @@ extends Node
 
 var Score = 0
 
-var fuelLevel = 500
+var fuelLevel = 600
 var fuelLevelMax = 1000
 var fuelChangeRate = 3
 var corePowerLevel = 300
@@ -36,7 +36,19 @@ func _ready():
 
 func _process(delta):
 	if(rainbowPart != 0):
-		
+		directionRainbownado = Vector2(0,0)
+		if(rainbowPart>1):
+			directionRainbownado.x = rainbowPart
+			rainbowPart -= delta 
+			if(rainbowPart<5):
+				rainbowPart = -30
+			pass
+		if(rainbowPart<1):
+			directionRainbownado.x  = rainbowPart
+			rainbowPart += delta 
+			if(rainbowPart>-5):
+				rainbowPart = 30
+			pass
 		pass
 	$RainbowNado.move_and_slide(directionRainbownado)
 	if(fuelLevel>fuelLevelMax):
@@ -51,6 +63,7 @@ func _process(delta):
 		
 func updateGlobalPlayerData(delta):
 	corePowerLevel += (fuelLevel/fuelLevelMax) * coreChangeRate * delta
+	$Camera2D/SideBar/VBoxContainer/CoreHeat.value = corePowerLevel
 	fuelLevel -= (corePowerLevel/corePowerLevelMax) * fuelChangeRate * delta
 	#$Player.updateCoreRotation(corePowerLevel)
 	#$Player.updateFuelLevel(fuelLevel)
@@ -101,7 +114,7 @@ func _on_LevelSwitcher_body_entered(body):
 	if(body.get_class()=="RigidBody2D"):
 		$Camera2D.zoom = cameraEndZoom 
 		$Camera2D.position = cameraEndPoistion
-
+		rainbowPart = 30
 	pass # replace with function body
 
 

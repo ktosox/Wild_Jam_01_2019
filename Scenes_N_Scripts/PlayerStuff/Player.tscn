@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scenes_N_Scripts/PlayerStuff/Player.gd" type="Script" id=1]
 [ext_resource path="res://Scenes_N_Scripts/PlayerStuff/PlayerShip.gd" type="Script" id=2]
@@ -6,15 +6,14 @@
 [ext_resource path="res://Scenes_N_Scripts/PlayerStuff/engine_smoke.tres" type="Material" id=4]
 [ext_resource path="res://Resources/Artwork/Effects/smoke1.png" type="Texture" id=5]
 [ext_resource path="res://Resources/Artwork/Player/ship_engine.png" type="Texture" id=6]
-[ext_resource path="res://Resources/Audio/engine_purr1_mid.wav" type="AudioStream" id=7]
-[ext_resource path="res://Resources/Artwork/Player/ship_bodyv2.png" type="Texture" id=8]
-[ext_resource path="res://Resources/Artwork/Player/ship_core_energy.png" type="Texture" id=9]
-[ext_resource path="res://Resources/Artwork/Player/ship_center.png" type="Texture" id=10]
-[ext_resource path="res://Resources/Artwork/Player/Space_ship_ring.png" type="Texture" id=11]
-[ext_resource path="res://Resources/Audio/pick_up_best.wav" type="AudioStream" id=12]
-[ext_resource path="res://Resources/Artwork/Player/player_particle_death.tres" type="Material" id=13]
+[ext_resource path="res://Resources/Artwork/Player/ship_bodyv2.png" type="Texture" id=7]
+[ext_resource path="res://Resources/Artwork/Player/ship_core_energy.png" type="Texture" id=8]
+[ext_resource path="res://Resources/Artwork/Player/ship_center.png" type="Texture" id=9]
+[ext_resource path="res://Resources/Artwork/Player/Space_ship_ring.png" type="Texture" id=10]
+[ext_resource path="res://Resources/Audio/pick_up_best.wav" type="AudioStream" id=11]
+[ext_resource path="res://Resources/Artwork/Player/player_particle_death.tres" type="Material" id=12]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 
 length = 2.0
 loop = true
@@ -32,7 +31,7 @@ tracks/0/keys = {
 "values": [ 360.0, 180.0, 0.0 ]
 }
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=2]
 
 custom_solver_bias = 0.0
 radius = 94.176
@@ -122,16 +121,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="EngineBuzz" type="AudioStreamPlayer" parent="PlayerShip/Engine" index="2"]
-
-stream = ExtResource( 7 )
-volume_db = 0.0
-pitch_scale = 0.7
-autoplay = true
-mix_target = 0
-bus = "Master"
-
-[node name="Polygon2D" type="Polygon2D" parent="PlayerShip/Engine" index="3"]
+[node name="Polygon2D" type="Polygon2D" parent="PlayerShip/Engine" index="2"]
 
 position = Vector2( 0, 11.8914 )
 polygon = PoolVector2Array( -11, 434.248, 9, 434.248, 9, 250, -11, 250 )
@@ -160,7 +150,7 @@ __meta__ = {
 [node name="Ring" type="Sprite" parent="PlayerShip/Body" index="0"]
 
 scale = Vector2( 2, 2 )
-texture = ExtResource( 8 )
+texture = ExtResource( 7 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
@@ -169,7 +159,7 @@ __meta__ = {
 [node name="Body_core" type="Sprite" parent="PlayerShip/Body" index="1"]
 
 scale = Vector2( 1.1, 1.1 )
-texture = ExtResource( 9 )
+texture = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
@@ -182,12 +172,12 @@ autoplay = "Rotation"
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/Rotation = SubResource( 2 )
+anims/Rotation = SubResource( 1 )
 blend_times = [  ]
 
 [node name="Body_top" type="Sprite" parent="PlayerShip/Body" index="2"]
 
-texture = ExtResource( 10 )
+texture = ExtResource( 9 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
@@ -196,7 +186,7 @@ __meta__ = {
 [node name="Body_bottom" type="Sprite" parent="PlayerShip/Body" index="3"]
 
 scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 11 )
+texture = ExtResource( 10 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
@@ -204,7 +194,7 @@ __meta__ = {
 
 [node name="SoundImpulse" type="AudioStreamPlayer" parent="PlayerShip" index="3"]
 
-stream = ExtResource( 12 )
+stream = ExtResource( 11 )
 volume_db = 0.0
 pitch_scale = 1.2
 autoplay = false
@@ -213,7 +203,7 @@ bus = "Master"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerShip" index="4"]
 
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
@@ -235,7 +225,7 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
-process_material = ExtResource( 13 )
+process_material = ExtResource( 12 )
 texture = ExtResource( 5 )
 normal_map = null
 h_frames = 1

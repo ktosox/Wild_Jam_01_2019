@@ -7,9 +7,6 @@ func _ready():
 	pass
 
 func _process(delta):
-	if(!$EngineBuzz.playing):
-		$EngineBuzz.play()
-		pass
 	if(spinNotLocked):
 		rotate(delta*spinRate)
 
