@@ -2,9 +2,10 @@ extends Node
 
 var fuelLevel = 500
 var fuelLevelMax = 1000
+var fuelChangeRate = 3
 var corePowerLevel = 300
 var corePowerLevelMax = 1000
-var coreSlowDownRate = 20
+var coreChangeRate = 120
 var playerDied = false
 var playerBase = load("res://Scenes_N_Scripts/PlayerStuff/Player.tscn") # Load Player Scene
 
@@ -25,12 +26,16 @@ func _process(delta):
 	$RainbowNado.move_and_slide(directionRainbownado)
 	if(fuelLevel>fuelLevelMax):
 		fuelLevel=fuelLevelMax
+	if(fuelLevel<0):
+		fuelLevel = 0
 	if(corePowerLevel>corePowerLevelMax):
 		corePowerLevel=corePowerLevelMax
+	if(corePowerLevel<0):
+		corePowerLevel = 0
 	updateGlobalPlayerData(delta)
-	if(fuelLevel<200 && !$SoundBox.playLowFuel):
+	if(fuelLevel<100 && !$SoundBox.playLowFuel):
 		$SoundBox.startLowFuel()
-	if(fuelLevel>200 && $SoundBox.playLowFuel):
+	if(fuelLevel>150 && $SoundBox.playLowFuel):
 		$SoundBox.stopLowFuel()
 		
 	if(corePowerLevel>800 && !$SoundBox.playCoreHeat):
@@ -39,12 +44,8 @@ func _process(delta):
 		$SoundBox.stopCoreHeat()
 		
 func updateGlobalPlayerData(delta):
-	if(corePowerLevel>0):
-		corePowerLevel -= delta * coreSlowDownRate
-		fuelLevel -= corePowerLevel * 0.1 * delta
-	if(corePowerLevel>200):
-		corePowerLevel -= delta * coreSlowDownRate * 3
-		fuelLevel -= corePowerLevel * 0.2 * delta
+	corePowerLevel += (fuelLevel/fuelLevelMax) * coreChangeRate * delta
+	fuelLevel -= (corePowerLevel/corePowerLevelMax) * fuelChangeRate * delta
 	$Player.updateCoreRotation(corePowerLevel)
 	$Player.updateFuelLevel(fuelLevel)
 	#decrease fuel and power * delta
@@ -58,10 +59,8 @@ func process_collision(projectile):
 		print("FUEL")
 	if (projectile.projectileType == 2):
 		projectile.get_parent().explode()
-		
-		
-		$Player/PlayerShip.linear_velocity.x +=($Player/PlayerShip.global_position.x - projectile.global_position.x) *20
-		$Player/PlayerShip.linear_velocity.y +=($Player/PlayerShip.global_position.y - projectile.global_position.y) *20
+		$Player/PlayerShip.linear_velocity.x +=($Player/PlayerShip.global_position.x - projectile.global_position.x) *15
+		$Player/PlayerShip.linear_velocity.y +=($Player/PlayerShip.global_position.y - projectile.global_position.y) *15
 		print("BOOM")
 	if (projectile.projectileType == 3):
 		#projectile.get_parent()
@@ -71,12 +70,8 @@ func process_collision(projectile):
 
 func killPlayer():
 	if(!playerDied):
-		print("PLAYER KILLED")
 		playerDied = true
 		$Player.deathEvent(10)
 	pass
 
-func _on_DeathTimer_timeout():
-	if(playerDied):
-		get_tree().change_scene("res://Scenes_N_Scripts/GameFolder/DeathScreen.tscn")
 

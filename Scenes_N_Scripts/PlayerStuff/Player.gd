@@ -3,10 +3,11 @@ extends Node2D
 var GameScenePointer
 var ScreenScrollSpeed = 90
 
-var cameraStart = Vector2(0.6,0.6)
-var cameraStop =  Vector2()
-var cameraDefault = Vector2(1.2,1.2)
+var cameraStart = Vector2(0.4,0.4)
+var cameraDefault = Vector2(1.4,1.4)
 
+var zoomOut = true
+var zoomIn = false
 
 # class member variables go here, for example:
 # var a = 2
@@ -19,20 +20,30 @@ func _ready():
 	pass
 
 func _process(delta):
-	if($Camera2D.zoom.x<cameraDefault.x):
-		$Camera2D.zoom.x += 0.3 * delta
-		$Camera2D.zoom.y += 0.3 * delta
+	if(zoomOut):
+		if($Camera2D.zoom.x<cameraDefault.x):
+			$Camera2D.zoom.x += 0.3 * delta
+			$Camera2D.zoom.y += 0.3 * delta
+		else:
+			zoomOut = false
+			zoomOutDone()
+	if(zoomIn):
+		if($Camera2D.zoom.x>cameraStart.x):
+			$Camera2D.zoom.x -= 0.3 * delta
+			$Camera2D.zoom.y -= 0.3 * delta
+		else:
+			zoomIn = false
+			zoomInDone()
 	if(!$Camera2D/Area2D.overlaps_body($PlayerShip)):
-		$Camera2D.global_position = $Camera2D.global_position + $PlayerShip.linear_velocity * delta
-		pass
+			$Camera2D.global_position = $Camera2D.global_position + $PlayerShip.linear_velocity * delta
+			pass
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
 	pass
 func updateCoreRotation(value):
 	$PlayerShip/Body/Body_core/AnimationPlayer.playback_speed = value/50
-	$PlayerShip.speed = value
 	$Camera2D/CoreHeat.value = value
-	$PlayerShip/Engine/EngineBuzz.pitch_scale= value/400
+	$PlayerShip/Engine/EngineBuzz.pitch_scale= 1 + (value/(value+500))
 	#adjust playback speed of core rotation animation here
 	pass
 	
@@ -40,7 +51,19 @@ func updateFuelLevel(value):
 	$Camera2D/FuelBar.value = value
 	pass
 	
+func zoomOutDone():
+	pass
+
+func zoomInDone():
+	pass
+
+
+
+
+	
 func deathEvent(type):
+	zoomIn = true
+	$Camera2D/SceneManager.fadeIn = true
 	$PlayerShip/DeathSmoke.restart()
 	$PlayerShip/Engine.visible = false
 	$PlayerShip/Body.visible = false

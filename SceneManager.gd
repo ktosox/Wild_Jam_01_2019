@@ -3,7 +3,7 @@ extends Node
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
-var fadeOut = false
+var fadeOut = true
 var fadeIn = false
 
 var listOfScenes = {
@@ -19,13 +19,13 @@ func _ready():
 
 func _process(delta):
 	if(fadeIn):
-		$Curtain.modulate.a += 0.5 * delta 
+		$Curtain.modulate.a += 0.3 * delta 
 		if($Curtain.modulate.a >= 1):
 			fadeIn = false
 			fadeInComplete()
 		pass
 	if(fadeOut):
-		$Curtain.modulate.a -= 0.5 * delta 
+		$Curtain.modulate.a -= 0.3 * delta 
 		if($Curtain.modulate.a <= 0):
 			fadeOut = false
 			fadeOutComplete()

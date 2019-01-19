@@ -1,6 +1,6 @@
 extends Node2D
 var spinNotLocked = true #spins if true
-var spinRate = 2
+var spinRate = 5.4
 
 
 func _ready():
