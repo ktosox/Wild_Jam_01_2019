@@ -21,7 +21,7 @@ don't care
 
 ## Version 0.8
 
-- a title would be nice
+- a title would be nice / prismatic... something
 
 - possibly a cool down to engine
 
@@ -32,6 +32,8 @@ don't care
 - ~~bake better body in blender~~ done
 
 - add a swirl sound effect for the edge
+
+- fix in-game interface
 
 ## Version 0.9
 
