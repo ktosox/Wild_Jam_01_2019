@@ -4,15 +4,6 @@ var GameScenePointer
 var ScreenScrollSpeed = 90
 
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
-
-func _ready():
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
-	pass
-
 func _process(delta):
 
 
@@ -27,10 +18,7 @@ func updateCoreRotation(value):
 	$PlayerShip/Engine/EngineBuzz.pitch_scale= 1 + (value/(value+500))
 	#adjust playback speed of core rotation animation here
 	pass
-	
-	
 
-	
 func deathEvent(type):
 	$PlayerShip/DeathSmoke.restart()
 	$PlayerShip/Engine.visible = false

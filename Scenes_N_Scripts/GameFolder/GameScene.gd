@@ -75,13 +75,15 @@ func process_collision(projectile):
 	if (projectile.projectileType == 1):
 		fuelLevel +=350
 		projectile.get_parent().useUp()
+	if (projectile.projectileType == 2):
+		#bomb code goes here
+		pass
 	if (projectile.projectileType == 3):
 		projectile.get_parent().gainLoop()
 		Score += 1
 		if (Score>7):
 			unlockPortal()
 		$Camera2D/SideBar/VBoxContainer/Label3.text = str(Score)
-		#$Player.gainLoop(Score)
 	projectile.unLive()
 	
 
@@ -115,16 +117,8 @@ func _on_LevelSwitcher_body_entered(body):
 		$Camera2D.zoom = cameraEndZoom 
 		$Camera2D.position = cameraEndPoistion
 		rainbowPart = 30
-	pass # replace with function body
-
-
-
-
-
-
-
-
+	pass
 
 func _on_DeathTimer_timeout():
 	get_tree().change_scene("res://Scenes_N_Scripts/GameFolder/DeathScreen.tscn")
-	pass # replace with function body
+	pass

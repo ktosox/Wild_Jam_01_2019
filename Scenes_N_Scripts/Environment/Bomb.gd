@@ -1,13 +1,8 @@
 extends Node2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
 var toRemove = false
 
 func _ready():
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
 	$Projectile.gameScenePointer = get_parent()
 	$Projectile.projectileType = 2
 	randomize()
@@ -29,10 +24,8 @@ func explode():
 
 func _on_Timer_timeout():
 	toRemove = true
-	pass # replace with function body
-
-
+	pass
 
 func _on_Timer2_timeout():
 	explode()
-	pass # replace with function body
+	pass

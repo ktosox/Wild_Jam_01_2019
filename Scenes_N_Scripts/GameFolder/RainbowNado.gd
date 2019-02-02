@@ -1,28 +1,13 @@
 extends Node2D
 
-
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
-
-func _ready():
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
-	pass
-
-func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-	pass
-
-
+#shows rainbownado after player enters its area
 func _on_Area2D_body_entered(body):
 	if(body.get_class()=="RigidBody2D"):
 		self.visible=true
-	pass # replace with function body
+	pass
 
-
+#send a kill event once player touches edge of rainbownado
 func _on_Area2D_body_exited(body):
 	if(body.get_class()=="RigidBody2D"):
-		get_parent().killPlayer()	
-	pass # replace with function body
+		get_parent().killPlayer()
+	pass
